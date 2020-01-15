@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/15 00:07:15 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/15 15:44:26 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,6 @@ void	ft_verLine(int x, int y, t_cub *cub)
 	else if (y > cub->drawEnd)
 		ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
 			&cub->floor_color, sizeof(int));
-	/*else
-	{
-		//  printf("holaa\n");
-		cub->texY = abs((((y * 256 - cub->height * 128 + cub->lineHeight * 128) * 64) / cub->lineHeight) / 256);
-		//  printf("adios\n");
-		ft_memcpy(cub->img + 4 * cub->width * y + x * 4,
-		  		&cub->tex[cub->id].data[cub->texY % 64 * cub->tex[cub->id].size_line +
-		  		cub->texX % 64 * cub->tex[cub->id].bpp / 8], sizeof(int));
-		//  printf("PEPINILLOS\n");
-		//ft_memcpy(cub->data + 4 * cub->width * y + x * 4, &cub->wall_color, sizeof(int));
-	}*/
 }
 
 
@@ -107,7 +96,6 @@ int		ft_loop(t_cub *cub)
 				cub->perpWalldist = (cub->mapX - cub->posX + (1 - cub->stepX) / 2) / cub->rayDirX;
 		else
 			cub->perpWalldist = (cub->mapY - cub->posY + (1 - cub->stepY) / 2) / cub->rayDirY;
-		//put_id(cub);	
 		cub->lineHeight = (int)(cub->height / cub->perpWalldist);
 		cub->drawStart = -cub->lineHeight / 2 + cub->height / 2;
 		if (cub->drawStart < 0)
@@ -121,12 +109,12 @@ int		ft_loop(t_cub *cub)
 
 		
 		//x coordenate on the texture
-		cub->id = cub->matrix[cub->mapX][cub->mapY] + cub->side;
+		cub->id = cub->matrix[cub->mapX][cub->mapY] + cub->side * 2;
 
 		if (cub->side == 0)
 			cub->wallX = cub->posY + cub->perpWalldist * cub->rayDirY;
 		else
-			cub->wallX = cub->posY + cub->perpWalldist * cub->rayDirX;
+			cub->wallX = cub->posX + cub->perpWalldist * cub->rayDirX;
 	
 		cub->wallX -= floor((cub->wallX));
 		cub->texX = abs((int)(cub->wallX * (double)(64)));
@@ -149,7 +137,6 @@ int		ft_loop(t_cub *cub)
 		ft_crouch_jump(cub);
 		x++;
 	}
-	//printf("esto una polla\n");
 	mlx_put_image_to_window (cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
 	
 	return (0);	
