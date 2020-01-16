@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_textures copy.c                                 :+:      :+:    :+:   */
+/*   ft_textures.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:15:21 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/14 16:08:12 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/15 11:51:15 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	load_cubs(t_cub *cub)
 	cub->tex[0].data = mlx_get_data_addr(cub->tex[0].img, &cub->tex[0].bpp,
 			&cub->tex[0].size_line, &cub->tex[0].endian);
     printf("valor de bpp%i\n%i\n%i\n", cub->tex[0].bpp, cub->tex[0].size_line, cub->tex[0].endian);
-	cub->tex[1].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/stone.xpm", &a, &b);
+	cub->tex[1].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/wood.xpm", &a, &b);
 	cub->tex[1].data = mlx_get_data_addr(cub->tex[1].img, &cub->tex[1].bpp,
 			&cub->tex[1].size_line, &cub->tex[1].endian);
 	cub->tex[2].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/mossy.xpm", &a, &b);
