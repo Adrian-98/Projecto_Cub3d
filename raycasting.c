@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/16 22:58:56 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/17 15:20:17 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_verLine(int x, int y, t_cub *cub)
 {
-	//  if (y < cub->drawStart)
-	//  	ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
-	//  		&cub->sky_color, sizeof(int));
+	if (y < cub->drawStart)
+		ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
+			&cub->sky_color, sizeof(int));
 	if (y > cub->drawEnd)
 		ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
 			&cub->floor_color, sizeof(int));
@@ -26,14 +26,11 @@ void		draw_sky(t_cub *cub)
 	int x;
 	int y;
 	x = 0;
-	printf("hola\n");
 	while (x < cub->width)
 	{
-		printf("x bucle\n");
 		y = 0;
 		while (y < cub->height / 2)
 		{
-			printf("y bucle\n");
 			ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
 					&cub->tex[6].data[y % 512 * cub->tex[6].size_line +
 					x % 512 * cub->tex[6].bpp / 8], sizeof(int));
