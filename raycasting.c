@@ -6,48 +6,11 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/19 20:59:18 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/19 22:44:41 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
-
-// void		draw_sky(t_cub *cub)
-// {
-// 	int x;
-// 	int y;
-// 	x = 0;
-// 	const double PI =  3.1415926;
-// 	int aux;
-	
-// 	double imgx;
-// 	int center;
-// 	int cotainf;
-// 	int cotasup;
-// 	int delay = (66 * 660/ 360) / 2;
-	
-// 	imgx = (double)((int)(acos(cub->dirX)*180/PI)) * 660.0 / 360.0;
-// 	center = (int)imgx;
-// 	cotainf = (int)(imgx - delay) % 660;
-// 	cotasup = (int)(imgx + delay) % 660; 
-// 	if (center == 0)
-// 		printf("hola\n");
-	
-// 	while (x < cub->width)
-// 	{
-// 		y = 0;
-// 		while (y < cub->height / 2)
-// 		{
-// 			imgx = (double)(1.0 - (double)x/(cub->width))*(double)cotainf + (double)((double)x/((double)cub->width))*(double)cotasup;
-// 			imgx = (int)imgx;
-// 			ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
-// 					&cub->tex[6].data[y % 218 * cub->tex[6].size_line +
-// 					((int)imgx) % 660 * cub->tex[6].bpp / 8], sizeof(int));
-// 			y++;
-// 		}
-// 		x++;
-// 	}
-// }
 
 void		draw_sky(t_cub *cub)
 {
@@ -156,11 +119,7 @@ int		ft_loop(t_cub *cub)
 		cub->drawEnd = cub->lineHeight / 2 + cub->height / 2;
 		if (cub->drawEnd >= cub->height)
 			cub->drawEnd = cub->height - 1;
-			
-
-
-
-		
+					
 		//x coordenate on the texture
 		cub->id = cub->matrix[cub->mapX][cub->mapY] + cub->side * 2;
 
@@ -168,7 +127,6 @@ int		ft_loop(t_cub *cub)
 			cub->wallX = cub->posY + cub->perpWalldist * cub->rayDirY;
 		else
 			cub->wallX = cub->posX + cub->perpWalldist * cub->rayDirX;
-	
 		cub->wallX -= floor((cub->wallX));
 		cub->texX = abs((int)(cub->wallX * (double)(64)));
 		ft_crouch_jump(cub);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/17 15:45:40 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/19 22:46:00 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void	ft_inicialize(t_cub *cub)
 	
 }
 
+int close_window(cub)
+{
+    (void)cub;
+    exit(0);
+}
 
 int		main(void)
 {
@@ -47,6 +52,7 @@ int		main(void)
 
 	mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
 	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
+	mlx_hook(cub->win_ptr, 17, 0, close_window, cub);
 	
 	mlx_loop_hook(cub->mlx_ptr, ft_loop, cub);
 	
