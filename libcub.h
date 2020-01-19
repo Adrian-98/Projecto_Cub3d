@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/19 20:38:39 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/19 22:53:30 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,53 @@
 # define WINX 1920
 # define WINY 1080
 
+typedef struct				s_sprites_work
+{
+	double					sp_x;
+	double					sp_y;
+	double					inv_det;
+	double					transform_x;
+	double					transform_y;
+	int						sp_screen_x;
+	int						vms;
+	int						sp_height;
+	int						draw_start_y;
+	int						draw_end_y;
+	int						sp_width;
+	int						draw_start_x;
+	int						draw_end_x;
+	int						stripe;
+	int						tex_x;
+	int						y;
+	int						d;
+	int						tex_y;
+	int						color;
+}							t_sprites_work;
+
+typedef struct				s_sprites
+{
+	int						x;
+	int						y;
+	int						tex_index;
+}							t_sprites;
+
+typedef struct				s_player
+{
+	short					life;
+	short					bullets;
+	char					*name;
+	int						shooting;
+	int						fr;
+	short					reload;
+	int						chest_collected;
+	int						chest_to_collect;
+	int						ended;
+	double					x_pos;
+	double					y_pos;
+	double					x_dir;
+	double					y_dir;
+}							t_player;
+
 typedef struct	s_texture
 {
 	void	*img;
@@ -46,6 +93,9 @@ typedef struct	s_cub
 	int			bpp;
 	int			size_line;
 	int			endian;
+
+	t_sprites	*sprites;
+	t_player	*player;
 	
 	double		posX;
 	double		posY;
