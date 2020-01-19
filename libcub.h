@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/16 22:40:06 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/19 20:38:39 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 # define texHeight 64
 # define texWidth 64
+# define WINX 1920
+# define WINY 1080
 
 typedef struct	s_texture
 {
