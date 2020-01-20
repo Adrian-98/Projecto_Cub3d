@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/19 23:37:15 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/20 13:37:12 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ static int		cub3d(t_cub *cub)
 {
 	cub->lenline = -1;
 	
-	//cub->player->shooting = 0;
-	//cub->player->fr = 17;
+	cub->player.shooting = 0;
+	cub->player.fr = 17;
 	
-	//cub->player->life = 100;
-	//cub->player->bullets = 8;
+	cub->player.life = 100;
+	cub->player.bullets = 8;
 	
-	// cub->player->reload = 0;
-	// cub->player->x_pos += 0.5;
-	// cub->player->y_pos += 0.5;
+	 cub->player.reload = 0;
+	 cub->player.x_pos += 0.5;
+	 cub->player.y_pos += 0.5;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->window.window_width)))
 		return (0);
-//	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
+	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
 	return (1);
 }
 
