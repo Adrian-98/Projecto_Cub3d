@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/19 22:53:30 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/19 23:25:30 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,19 @@ typedef struct				s_sprites_work
 	int						tex_y;
 	int						color;
 }							t_sprites_work;
+
+typedef struct				s_window
+{
+	void					*mlx;
+	void					*win;
+	void					*img;
+	void					*img_ptr;
+	int						window_width;
+	int						window_height;
+	int						bpp;
+	int						endian;
+	int						sl;
+}							t_window;
 
 typedef struct				s_sprites
 {
@@ -96,6 +109,9 @@ typedef struct	s_cub
 
 	t_sprites	*sprites;
 	t_player	*player;
+	t_window	window;
+	double		*zbuffer;
+	int			lenline;
 	
 	double		posX;
 	double		posY;
@@ -148,7 +164,7 @@ typedef struct	s_cub
 	int			texY;
 	double		wallX;
 	int			id;
-	t_texture	tex[10];
+	t_texture	tex[20];
 
 	int			jump;
 	int			crouch;
@@ -177,5 +193,6 @@ int			key_realese(int keycode, t_cub *cub);
 void		put_id(t_cub *cub);
 void		ft_verLine(int x, int y, t_cub *cub);
 void		draw_sky(t_cub *cub);
+int			close_window(t_cub *cub);
 
 # endif

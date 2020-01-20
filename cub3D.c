@@ -6,11 +6,30 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/19 22:46:00 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/19 23:37:15 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
+
+static int		cub3d(t_cub *cub)
+{
+	cub->lenline = -1;
+	
+	//cub->player->shooting = 0;
+	//cub->player->fr = 17;
+	
+	//cub->player->life = 100;
+	//cub->player->bullets = 8;
+	
+	// cub->player->reload = 0;
+	// cub->player->x_pos += 0.5;
+	// cub->player->y_pos += 0.5;
+	if (!(cub->zbuffer = malloc(sizeof(double) * cub->window.window_width)))
+		return (0);
+//	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
+	return (1);
+}
 
 void	ft_inicialize(t_cub *cub)
 {
@@ -26,11 +45,6 @@ void	ft_inicialize(t_cub *cub)
 	
 }
 
-int close_window(cub)
-{
-    (void)cub;
-    exit(0);
-}
 
 int		main(void)
 {
@@ -43,6 +57,8 @@ int		main(void)
 	if (!(cub = malloc(sizeof(t_cub))))
 		return (0);
 	ft_inicialize(cub);
+	cub3d(cub);
+	printf("holaa\n");
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr, cub->width, cub->height, "mlx42");

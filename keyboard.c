@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 18:58:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/14 19:35:05 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/19 23:25:38 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,10 @@ int		key_realese(int keycode, t_cub *cub)
 		cub->movespeed *= 2;
 	}
 	return (0);
+}
+
+int close_window(t_cub *cub)
+{
+    (void)cub;
+    exit(0);
 }
