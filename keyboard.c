@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 18:58:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/19 23:25:38 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/20 13:50:02 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		key_press(int keycode, t_cub *cub)
 		cub->walk_right = 1;
 	if (keycode == 53)
 	{
+		system("killall afplay 2&>/dev/null >/dev/null");
 		mlx_destroy_window(cub->mlx_ptr, cub->win_ptr);
 		exit(0);
 	}
@@ -73,5 +74,6 @@ int		key_realese(int keycode, t_cub *cub)
 int close_window(t_cub *cub)
 {
     (void)cub;
+	system("killall afplay 2&>/dev/null >/dev/null");
     exit(0);
 }
