@@ -6,11 +6,38 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:15:21 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/19 20:58:58 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 15:32:23 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
+
+
+
+static int				setup_shotgun(t_cub *cub)
+{
+	int		a;
+	int		b;
+
+	a = 64;
+	b = 64;
+	cub->tex[15].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/gun.xpm", &a, &b);
+	cub->tex[15].data = mlx_get_data_addr(cub->tex[15].img, &cub->tex[15].bpp,
+			&cub->tex[15].size_line, &cub->tex[15].endian);
+	cub->tex[16].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/gun2.xpm", &a, &b);
+	cub->tex[16].data = mlx_get_data_addr(cub->tex[16].img, &cub->tex[16].bpp,
+			&cub->tex[16].size_line, &cub->tex[16].endian);
+	cub->tex[17].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/gun3.xpm", &a, &b);
+	cub->tex[17].data = mlx_get_data_addr(cub->tex[17].img, &cub->tex[17].bpp,
+			&cub->tex[17].size_line, &cub->tex[17].endian);
+	cub->tex[18].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/gun4.xpm", &a, &b);
+	cub->tex[18].data = mlx_get_data_addr(cub->tex[18].img, &cub->tex[18].bpp,
+			&cub->tex[18].size_line, &cub->tex[18].endian);
+	cub->tex[19].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/gun5.xpm", &a, &b);
+	cub->tex[19].data = mlx_get_data_addr(cub->tex[19].img, &cub->tex[19].bpp,
+			&cub->tex[19].size_line, &cub->tex[19].endian);
+	return (1);
+}
 
 void	load_cubs(t_cub *cub)
 {
@@ -50,4 +77,6 @@ void	load_cubs(t_cub *cub)
 	cub->tex[9].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/cristal.xpm", &a, &b);
 	cub->tex[9].data = mlx_get_data_addr(cub->tex[9].img, &cub->tex[9].bpp,
 			&cub->tex[9].size_line, &cub->tex[9].endian);
+	setup_shotgun(cub);
 }
+

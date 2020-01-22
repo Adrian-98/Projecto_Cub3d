@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 18:58:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/20 13:54:21 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 15:24:19 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		key_press(int keycode, t_cub *cub)
 		cub->movespeed /= 2;
 	}
 	if (keycode == 49)
-		cub->jump = 1;
+		cub->player.shooting = 1;
 	if (keycode == 257)
 		cub->movespeed = cub->movespeed * 2;
 	if (keycode == 13)
@@ -61,8 +61,6 @@ int		key_realese(int keycode, t_cub *cub)
 		cub->walk_left = 0;
 	if (keycode == 2)
 	 	cub->walk_right = 0;
-	if (keycode == 49)
-		cub->jump = 0;
 	if (keycode == 256)
 	{
 		cub->crouch = 0;

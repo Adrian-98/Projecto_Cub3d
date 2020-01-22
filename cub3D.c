@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/22 14:58:52 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 15:01:57 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_inicialize(t_cub *cub)
 	cub->wall_color = 0x56050;
 	cub->floor_color = 48878;
 	cub->crouch = 0;
-	cub->jump = 0;
+	cub->shot = 0;
 	
 }
 

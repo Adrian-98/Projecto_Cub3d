@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/22 14:58:15 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 15:18:21 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,10 +171,11 @@ typedef struct	s_cub
 	int			id;
 	t_texture	tex[20];
 
-	int			jump;
+	int			shot;
 	int			crouch;
 }				t_cub;
 
+void		draw_gun(t_cub *cub);
 char		*ft_itoa(int n);
 void		fps(t_cub *cub);
 size_t		ft_strlen(const char *s);
