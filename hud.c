@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 14:41:55 by adrian            #+#    #+#             */
-/*   Updated: 2020/01/22 15:00:26 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 16:05:58 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	put_hud(t_cub *cub)
 	mlx_string_put(cub->mlx_ptr, cub->win_ptr,
 		cub->width - 30, cub->height - 40, 0x00000, " /8");
 	mlx_string_put(cub->mlx_ptr, cub->win_ptr,
-		cub->width / 2, cub->height / 2 + 15, 0x0000, ".");
+		cub->width / 2, cub->height / 2 + 15, 0xFFFFF, "()");
 }
 
 void		fps(t_cub *cub)
