@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/20 13:36:51 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 14:58:15 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-
+# include <time.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/ioctl.h>
 
 # define texHeight 64
 # define texWidth 64
@@ -170,8 +175,8 @@ typedef struct	s_cub
 	int			crouch;
 }				t_cub;
 
-
-
+char		*ft_itoa(int n);
+void		fps(t_cub *cub);
 size_t		ft_strlen(const char *s);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strdup(const char *s1);

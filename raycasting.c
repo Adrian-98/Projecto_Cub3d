@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/22 14:39:39 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 14:57:31 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,8 @@ int		ft_loop(t_cub *cub)
 		ft_crouch_jump(cub);
 		x++;
 	}
-	mlx_put_image_to_window (cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
 	
+	mlx_put_image_to_window (cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
+	fps(cub);
 	return (0);	
 }

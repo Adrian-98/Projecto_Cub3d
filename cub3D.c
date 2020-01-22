@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/22 14:34:25 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 14:58:52 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int		cub3d(t_cub *cub)
 	
 	cub->player.shooting = 0;
 	cub->player.fr = 17;
-	
+	cub->player.name = "THE KING!";
 	cub->player.life = 100;
 	cub->player.bullets = 8;
 	
@@ -33,8 +33,8 @@ static int		cub3d(t_cub *cub)
 
 void	ft_inicialize(t_cub *cub)
 {
-	cub->width = 1920;
-	cub->height = 1080;
+	cub->width = 900;
+	cub->height = 700;
 	cub->movespeed = 0.3;
 	cub->rotatespeed = 0.2;
 	cub->sky_color = 4626496;
@@ -58,7 +58,6 @@ int		main(void)
 		return (0);
 	ft_inicialize(cub);
 	cub3d(cub);
-	printf("holaa\n");
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr, cub->width, cub->height, "mlx42");
@@ -72,7 +71,7 @@ int		main(void)
 	
 	mlx_loop_hook(cub->mlx_ptr, ft_loop, cub);
 	
-
+	
 	mlx_loop(cub->mlx_ptr);
 	free(cub);
 	return (0);
