@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/20 13:37:12 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 14:34:25 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_inicialize(t_cub *cub)
 {
 	cub->width = 1920;
 	cub->height = 1080;
-	cub->movespeed = 0.08;
-	cub->rotatespeed = 0.08;
+	cub->movespeed = 0.3;
+	cub->rotatespeed = 0.2;
 	cub->sky_color = 4626496;
 	cub->wall_color = 0x56050;
 	cub->floor_color = 48878;

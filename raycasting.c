@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/19 22:44:41 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/22 14:39:39 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,12 +121,20 @@ int		ft_loop(t_cub *cub)
 			cub->drawEnd = cub->height - 1;
 					
 		//x coordenate on the texture
-		cub->id = cub->matrix[cub->mapX][cub->mapY] + cub->side * 2;
+		
 
 		if (cub->side == 0)
 			cub->wallX = cub->posY + cub->perpWalldist * cub->rayDirY;
 		else
 			cub->wallX = cub->posX + cub->perpWalldist * cub->rayDirX;
+		if (cub->hit == 1)
+		{
+			if (cub->side == 0 && cub->posX > cub->mapX)
+				cub->side = 6;
+			else if (cub->side == 1 && cub->posY < cub->mapY)
+				cub->side = 3;
+		}
+		cub->id = cub->matrix[cub->mapX][cub->mapY] + cub->side;
 		cub->wallX -= floor((cub->wallX));
 		cub->texX = abs((int)(cub->wallX * (double)(64)));
 		ft_crouch_jump(cub);
