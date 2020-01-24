@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:04:21 by marandre          #+#    #+#             */
-/*   Updated: 2020/01/22 14:48:11 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/24 20:16:39 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdlib.h>
+#include "libcub.h"
 
 static	int		sized(int n)
 {

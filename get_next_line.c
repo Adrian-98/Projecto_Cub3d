@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: glopez-a <glopez-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 14:44:44 by glopez-a          #+#    #+#             */
-/*   Updated: 2019/12/18 19:10:29 by glopez-a         ###   ########.fr       */
+/*   Updated: 2020/01/24 20:18:53 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libcub.h"
+#include "libcub.h"
 
 char		*ft_strjoin(char const *s1, char const *s2)
 {
@@ -57,7 +57,7 @@ static int	get_line(char **line, char *aux, int i)
 }
 
 int			get_next_line(const int fd, char **line)
-{		
+{
 	int			i;
 	static char	*aux;
 	char		buff[2];
@@ -82,4 +82,3 @@ int			get_next_line(const int fd, char **line)
 	}
 	return (get_line(line, aux, i));
 }
-

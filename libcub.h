@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libcub.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/22 15:18:21 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/24 20:21:10 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/ioctl.h>
+# include <stdlib.h>
 
 # define texHeight 64
 # define texWidth 64
@@ -200,5 +201,9 @@ void		put_id(t_cub *cub);
 void		ft_verLine(int x, int y, t_cub *cub);
 void		draw_sky(t_cub *cub);
 int			close_window(t_cub *cub);
+void		principal(char **argv);
+void    	ft_error(void);
+void		ft_walk_right(t_cub *cub);
+void		ft_walk_left(t_cub *cub);
 
 # endif

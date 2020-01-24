@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: glopez-a <glopez-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:20:44 by glopez-a          #+#    #+#             */
-/*   Updated: 2019/11/24 16:10:44 by glopez-a         ###   ########.fr       */
+/*   Updated: 2020/01/24 20:17:47 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libcub.h"
+#include "libcub.h"
 
 size_t	ft_strlen(const char *s)
 {
