@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_screeshot.c                                     :+:      :+:    :+:   */
+/*   ft_screenshot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:27:24 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/24 20:38:49 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/24 23:29:40 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	write_bmp_data(int file, t_cub *cub, int pad)
 		x = 0;
 		while (x < (int)cub->width)
 		{
-			color = get_color(g, x, y);
+			color = get_color(cub, x, y);
 			if (write(file, &color, 3) < 0)
 				return (0);
 			if (pad > 0 && write(file, &zero, pad) < 0)
@@ -87,10 +87,10 @@ void		ft_screenshot(t_cub *cub)
 	filesize = 54 + (3 * ((int)cub->width + pad) * (int)cub->height);
 	if ((file = open("screenshot.bmp", O_WRONLY | O_CREAT
 		| O_TRUNC | O_APPEND, 777)) < 0)
-		ft_exit_error("\nError\nFailed bmp file creation\n");
+		ft_error();
 	if (!write_bmp_header(file, filesize, cub))
-		ft_exit_error("\nError\nFailed bmp file creation\n");
+		ft_error();
 	if (!write_bmp_data(file, cub, pad))
-		ft_exit_error("\nError\nFailed bmp file creation\n");
+		ft_error();
 	close(file);
 }

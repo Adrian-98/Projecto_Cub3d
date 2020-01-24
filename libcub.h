@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 20:38:16 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/24 23:27:28 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,10 +201,13 @@ void		put_id(t_cub *cub);
 void		ft_verLine(int x, int y, t_cub *cub);
 void		draw_sky(t_cub *cub);
 int			close_window(t_cub *cub);
-void		principal(char **argv);
+void		principal(char **argv, t_cub *cub);
 void    	ft_error(void);
 void		ft_walk_right(t_cub *cub);
 void		ft_walk_left(t_cub *cub);
 void		ft_screenshot(t_cub *cub);
+void		principal2(char **argv, t_cub *cub);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			cub3d(t_cub *cub);
 
 # endif

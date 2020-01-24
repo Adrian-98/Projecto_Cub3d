@@ -6,13 +6,13 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 20:15:59 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/24 23:28:22 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
 
-static int	cub3d(t_cub *cub)
+int			cub3d(t_cub *cub)
 {
 	cub->lenline = -1;
 	cub->player.shooting = 0;
@@ -42,17 +42,13 @@ void		ft_inicialize(t_cub *cub)
 	cub->shot = 0;
 }
 
-void		principal(char **argv)
+void		principal(char **argv, t_cub *cub)
 {
-	t_cub	*cub;
 	int		fd;
 	char	*line;
 
 	line = malloc(sizeof(char *));
 	fd = open(*argv, O_RDONLY);
-	if (!(cub = malloc(sizeof(t_cub))))
-		ft_error();
-	ft_inicialize(cub);
 	cub3d(cub);
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
@@ -69,8 +65,18 @@ void		principal(char **argv)
 
 int			main(int argc, char **argv)
 {
+	t_cub	*cub;
+
+	if (!(cub = malloc(sizeof(t_cub))))
+		ft_error();
+	ft_inicialize(cub);
 	if (argc == 2)
-		principal(&argv[1]);
+		principal(&argv[1], cub);
+	else if (argc == 3 && ft_strncmp("--save", argv[2], 6) == 0)
+	{
+		printf("\nhola\n");
+		principal2(&argv[1], cub);
+	}
 	else
 		ft_error();
 	return (0);
