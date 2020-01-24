@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 20:21:10 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/24 20:38:16 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,5 +205,6 @@ void		principal(char **argv);
 void    	ft_error(void);
 void		ft_walk_right(t_cub *cub);
 void		ft_walk_left(t_cub *cub);
+void		ft_screenshot(t_cub *cub);
 
 # endif
