@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 15:09:16 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:24:54 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int			cub3d(t_cub *cub)
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
 	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
+
 	return (1);
 }
 

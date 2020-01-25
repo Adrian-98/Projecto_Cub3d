@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 15:10:59 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:23:01 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,20 @@
 # define texWidth 64
 # define WINX 1920
 # define WINY 1080
+#define NUMSPRITES 19
 
 typedef struct				s_sprites
 {
 	int						x;
 	int						y;
 	int						texture;
+	int						spriteorder[NUMSPRITES];
+	double					spritedistance[NUMSPRITES];
+	double					sprite_x;
+	double					sprite_y;
+	double					invdet;
+	double					transform_x;
+	double					transform_y;
 }							t_sprites;
 
 typedef struct				s_player
@@ -77,7 +85,7 @@ typedef struct	s_cub
 	int			size_line;
 	int			endian;
 
-	t_sprites	*sprite;
+	t_sprites	sprites;
 	t_player	player;
 
 	double		*zbuffer;
@@ -100,7 +108,7 @@ typedef struct	s_cub
 	double		sidedist_y;
 	double		deltadist_x;
 	double		deltadist_y;
-	double		perpWalldist;
+	double		perpwalldist;
 	double		rotatespeed;
 	int			drawstart;
 	int			drawend;
@@ -138,6 +146,7 @@ typedef struct	s_cub
 	int			crouch;
 }				t_cub;
 
+t_sprites   sprite[NUMSPRITES];
 void		draw_gun(t_cub *cub);
 char		*ft_itoa(int n);
 void		fps(t_cub *cub);

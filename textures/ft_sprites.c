@@ -6,15 +6,15 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 15:12:03 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:17:36 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
 
-#define numSprites 19
 
-Sprite sprite[numSprites] =
+
+t_sprites	sprite[NUMSPRITES] =
 {
   {20.5, 11.5, 10}, //green light in front of playerstart
   //green lights in every room
@@ -41,3 +41,5 @@ Sprite sprite[numSprites] =
   {10.0, 15.1,8},
   {10.5, 15.8,8},
 };
+
+

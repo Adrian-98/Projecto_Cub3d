@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 15:11:02 by adrian            #+#    #+#             */
-/*   Updated: 2020/01/25 12:43:30 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:26:43 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		draw_gun(t_cub *cub)
 {
 	int pos_x;
 	int pos_y;
-
+	fps(cub);
 	pos_x = (cub->width - 400) / 2;
 	pos_y = cub->height - 400;
 	if (cub->player.shooting == 0)

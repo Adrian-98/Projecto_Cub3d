@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 12:49:23 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:25:33 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ static void	wall_texture(t_cub *cub, int x)
 static void	cubside(t_cub *cub)
 {
 	if (cub->side == 0)
-		cub->perpWalldist = (cub->map_x - cub->pos_x +
+		cub->perpwalldist = (cub->map_x - cub->pos_x +
 		(1 - cub->step_x) / 2) / cub->raydir_x;
 	else
-		cub->perpWalldist = (cub->map_y - cub->pos_y +
+		cub->perpwalldist = (cub->map_y - cub->pos_y +
 		(1 - cub->step_y) / 2) / cub->raydir_y;
-	cub->lineHeight = (int)(cub->height / cub->perpWalldist);
+	cub->lineHeight = (int)(cub->height / cub->perpwalldist);
 	cub->drawstart = -cub->lineHeight / 2 + cub->height / 2;
 	if (cub->drawstart < 0)
 		cub->drawstart = 0;
@@ -78,9 +78,9 @@ static void	cubside(t_cub *cub)
 	if (cub->drawend >= cub->height)
 		cub->drawend = cub->height - 1;
 	if (cub->side == 0)
-		cub->wall_x = cub->pos_y + cub->perpWalldist * cub->raydir_y;
+		cub->wall_x = cub->pos_y + cub->perpwalldist * cub->raydir_y;
 	else
-		cub->wall_x = cub->pos_x + cub->perpWalldist * cub->raydir_x;
+		cub->wall_x = cub->pos_x + cub->perpwalldist * cub->raydir_x;
 }
 
 int			ft_loop(t_cub *cub)
@@ -106,8 +106,27 @@ int			ft_loop(t_cub *cub)
 		ft_crouch_jump(cub);
 		x++;
 	}
+	cub->zbuffer[x] = cub->perpwalldist;
+	//#aqui iba el mlx_put_to_window
+	
+	// int i;
+	// i = 0;
+	// while (i < NUMSPRITES)
+	// {
+	// 	cub->sprites.spriteorder[i] = i;
+	// 	cub->sprites.spritedistance[i] = ((cub->pos_x - sprite[i].x) *
+	// 	(cub->pos_x - sprite[i].x) + (cub->pos_y - sprite[i].y) *
+	// 	(cub->pos_y - sprite[i].y));
+	// }
+	// //sortsprites(cub->sprites.spriteorder,
+	// cub->sprites.spritedistance, NUMSPRITES);
+	// i = 0;
+	// while (i < NUMSPRITES)
+	// {
+	// 	cub->sprites.sprite_x = sprite[cub->sprites.spriteorder[i]].x - cub->pos_x;
+	// 	cub->sprites.sprite_y = sprite[cub->sprites.spriteorder[i]].y - cub->pos_y;
+	// }
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
 	draw_gun(cub);
-	fps(cub);
 	return (0);
 }
