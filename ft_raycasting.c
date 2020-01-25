@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 16:25:33 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 17:17:16 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,25 +107,6 @@ int			ft_loop(t_cub *cub)
 		x++;
 	}
 	cub->zbuffer[x] = cub->perpwalldist;
-	//#aqui iba el mlx_put_to_window
-	
-	// int i;
-	// i = 0;
-	// while (i < NUMSPRITES)
-	// {
-	// 	cub->sprites.spriteorder[i] = i;
-	// 	cub->sprites.spritedistance[i] = ((cub->pos_x - sprite[i].x) *
-	// 	(cub->pos_x - sprite[i].x) + (cub->pos_y - sprite[i].y) *
-	// 	(cub->pos_y - sprite[i].y));
-	// }
-	// //sortsprites(cub->sprites.spriteorder,
-	// cub->sprites.spritedistance, NUMSPRITES);
-	// i = 0;
-	// while (i < NUMSPRITES)
-	// {
-	// 	cub->sprites.sprite_x = sprite[cub->sprites.spriteorder[i]].x - cub->pos_x;
-	// 	cub->sprites.sprite_y = sprite[cub->sprites.spriteorder[i]].y - cub->pos_y;
-	// }
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
 	draw_gun(cub);
 	return (0);

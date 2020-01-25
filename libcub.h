@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 16:23:01 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:51:08 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 
 # define texHeight 64
 # define texWidth 64
-# define WINX 1920
-# define WINY 1080
+# define WINX 900
+# define WINY 700
 #define NUMSPRITES 19
 
 typedef struct				s_sprites

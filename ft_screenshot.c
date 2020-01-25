@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:27:24 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 12:11:09 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:54:21 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	get_color(t_cub *cub, int x, int y)
 	int	rgb;
 	int	color;
 
-	color = *(int*)(cub->img
+	color = *(int*)(cub->data
 			+ (4 * (int)cub->width * ((int)cub->height - 1 - y))
 			+ (4 * x));
 	rgb = (color & 0xFF0000) | (color & 0x00FF00) | (color & 0x0000FF);

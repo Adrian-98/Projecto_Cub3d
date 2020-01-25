@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 23:07:30 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 15:04:00 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:56:35 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void		principal2(char **argv, t_cub *cub)
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");
 	load_cubs(cub);
-	// mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
-	// mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
-	// mlx_hook(cub->win_ptr, 17, 0, close_window, cub);
+	mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
+	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
+	mlx_hook(cub->win_ptr, 17, 0, close_window, cub);
 	ft_loop(cub);
 	ft_screenshot(cub);
 	free(cub);
