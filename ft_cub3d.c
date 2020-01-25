@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 16:44:42 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 18:43:10 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int			cub3d(t_cub *cub)
 	cub->player.reload = 0;
 	cub->player.x_pos += 0.5;
 	cub->player.y_pos += 0.5;
+	cub->sprite_hit = 0;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
 	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
@@ -45,8 +46,8 @@ void		ft_inicialize(t_cub *cub)
 {
 	cub->width = 900;
 	cub->height = 700;
-	cub->movespeed = 0.3;
-	cub->rotatespeed = 0.2;
+	cub->movespeed = 0.08;
+	cub->rotatespeed = 0.08;
 	cub->sky_color = 4626496;
 	cub->wall_color = 0x56050;
 	cub->floor_color = 48878;
@@ -67,7 +68,6 @@ void		principal(char **argv, t_cub *cub)
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");
 	load_cubs(cub);
-
 	mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
 	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
 	mlx_hook(cub->win_ptr, 17, 0, close_window, cub);

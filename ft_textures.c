@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:15:21 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 19:48:54 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 18:56:35 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ static void	load2(t_cub *cub)
 	cub->tex[5].data = mlx_get_data_addr(cub->tex[5].img, &cub->tex[5].bpp,
 	&cub->tex[5].size_line, &cub->tex[5].endian);
 	load3(cub);
+	cub->tex[20].img = mlx_xpm_file_to_image(cub->mlx_ptr,
+	"textures/eagle.xpm", &a, &b);
+	cub->tex[20].data = mlx_get_data_addr(cub->tex[20].img, &cub->tex[20].bpp,
+			&cub->tex[20].size_line, &cub->tex[20].endian);
 }
 
 void		load_cubs(t_cub *cub)

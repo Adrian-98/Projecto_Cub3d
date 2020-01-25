@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 17:17:16 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:10:02 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	hit(t_cub *cub)
 			cub->map_y += cub->step_y;
 			cub->side = 1;
 		}
-		if (cub->matrix[cub->map_x][cub->map_y] > 0)
+		if (cub->matrix[cub->map_x][cub->map_y] == 1)
 			cub->hit = 1;
 	}
 }
@@ -104,9 +104,10 @@ int			ft_loop(t_cub *cub)
 		cubside2(cub);
 		wall_texture(cub, x);
 		ft_crouch_jump(cub);
+		cub->zbuffer[x] = cub->perpwalldist;
 		x++;
 	}
-	cub->zbuffer[x] = cub->perpwalldist;
+	draw_sprites(cub);
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
 	draw_gun(cub);
 	return (0);

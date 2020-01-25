@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 16:51:08 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:07:56 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,6 @@
 # define WINY 700
 #define NUMSPRITES 19
 
-typedef struct				s_sprites
-{
-	int						x;
-	int						y;
-	int						texture;
-	int						spriteorder[NUMSPRITES];
-	double					spritedistance[NUMSPRITES];
-	double					sprite_x;
-	double					sprite_y;
-	double					invdet;
-	double					transform_x;
-	double					transform_y;
-}							t_sprites;
-
 typedef struct				s_player
 {
 	short					life;
@@ -68,7 +54,7 @@ typedef struct				s_player
 typedef struct	s_texture
 {
 	void	*img;
-	void	*data;
+	char	*data;
 	int		bpp;
 	int		size_line;
 	int		endian;
@@ -85,11 +71,26 @@ typedef struct	s_cub
 	int			size_line;
 	int			endian;
 
-	t_sprites	sprites;
 	t_player	player;
 
-	double		*zbuffer;
+	int		*zbuffer;
 	int			lenline;
+	
+	double		inv_det;
+	double		transform_x;
+	double		transform_y;
+	double		sprite_x;
+	double		sprite_y;
+	int			sprite_screen_x;
+	int			sprite_height;
+	int			draw_start_y;
+	int			draw_end_y;
+	int			sprite_width;
+	int			draw_start_x;
+	int			draw_end_x;
+	int			sprite_hit;
+	int			sprite_posx;
+	int			sprite_posy;
 	
 	double		pos_x;
 	double		pos_y;
@@ -140,13 +141,13 @@ typedef struct	s_cub
 	int			tex_y;
 	double		wall_x;
 	int			id;
-	t_texture	tex[20];
+	t_texture	tex[25];
 
 	int			shot;
 	int			crouch;
 }				t_cub;
 
-t_sprites   sprite[NUMSPRITES];
+
 void		draw_gun(t_cub *cub);
 char		*ft_itoa(int n);
 void		fps(t_cub *cub);
@@ -180,5 +181,6 @@ void		ft_screenshot(t_cub *cub);
 void		principal2(char **argv, t_cub *cub);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			cub3d(t_cub *cub);
+void		draw_sprites(t_cub *cub);
 
 # endif
