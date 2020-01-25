@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/17 15:45:40 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 13:59:34 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ void	ft_inicialize(t_cub *cub)
 }
 
 
+int				mouse_functions(int x, int y, t_cub *cub)
+{
+	cub->dirX = cos((x * 720 / X) * M_PI / 180);
+	cub->dirY = sin((x * 720 / X) * M_PI / 180);
+	cub->planeX = 0.66 * cub->dirY;
+	cub->planeY = -0.66 * cub->dirX;
+	(void)y;
+	
+	return (0);
+}
+
 int		main(void)
 {
 	t_cub	*cub;
@@ -41,6 +52,7 @@ int		main(void)
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr, cub->width, cub->height, "mlx42");
+	mlx_hook(cub->win_ptr, 6, 0, mouse_functions, cub);
 	load_cubs(cub);
 	
 

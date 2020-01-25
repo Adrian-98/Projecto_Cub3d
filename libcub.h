@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libcub.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/16 22:40:06 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/25 13:47:32 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@
 # include <unistd.h>
 # include <math.h>
 
+# define DIR_X 0
+# define DIR_Y 0
+# define PLAN_X 0
+# define PLAN_Y 0
+# define X 1920
 
+# define Y 1080
 # define texHeight 64
 # define texWidth 64
+# define ROTATION_COEFF (float)M_PI / 1920 * 90 / 4
 
 typedef struct	s_texture
 {
@@ -44,7 +51,7 @@ typedef struct	s_cub
 	int			bpp;
 	int			size_line;
 	int			endian;
-	
+	double		test;
 	double		posX;
 	double		posY;
 	double		dirX;
@@ -69,7 +76,7 @@ typedef struct	s_cub
 	int			drawStart;
 	int			drawEnd;
 	double		movespeed;
-	
+	double		rotY;
 	int			width;
 	int			height;
 	int			sky_color;
