@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 18:00:54 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/24 20:19:56 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:45:17 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,50 @@
 
 static void	ft_walk_front(t_cub *cub)
 {
-	if (cub->matrix[(int)(cub->posX + cub->dirX *
-	cub->movespeed)][(int)cub->posY] == 0)
-		cub->posX = cub->posX + cub->dirX * cub->movespeed;
-	if (cub->matrix[(int)cub->posX][(int)(cub->posY +
-	cub->dirY * cub->movespeed)] == 0)
-		cub->posY = cub->posY + cub->dirY * cub->movespeed;
+	if (cub->matrix[(int)(cub->pos_x + cub->dir_x *
+	cub->movespeed)][(int)cub->pos_y] == 0)
+		cub->pos_x = cub->pos_x + cub->dir_x * cub->movespeed;
+	if (cub->matrix[(int)cub->pos_x][(int)(cub->pos_y +
+	cub->dir_y * cub->movespeed)] == 0)
+		cub->pos_y = cub->pos_y + cub->dir_y * cub->movespeed;
 }
 
 static void	ft_walk_back(t_cub *cub)
 {
-	if (cub->matrix[(int)(cub->posX - cub->dirX *
-	cub->movespeed)][(int)cub->posY] == 0)
-		cub->posX = cub->posX - cub->dirX * cub->movespeed;
-	if (cub->matrix[(int)cub->posX][(int)(cub->posY -
-	cub->dirY * cub->movespeed)] == 0)
-		cub->posY = cub->posY - cub->dirY * cub->movespeed;
+	if (cub->matrix[(int)(cub->pos_x - cub->dir_x *
+	cub->movespeed)][(int)cub->pos_y] == 0)
+		cub->pos_x = cub->pos_x - cub->dir_x * cub->movespeed;
+	if (cub->matrix[(int)cub->pos_x][(int)(cub->pos_y -
+	cub->dir_y * cub->movespeed)] == 0)
+		cub->pos_y = cub->pos_y - cub->dir_y * cub->movespeed;
 }
 
 static void	ft_rotate_right(t_cub *cub)
 {
-	cub->oldDirX = cub->dirX;
-	cub->dirX = cub->dirX * cos(-(cub->rotatespeed)) -
-	cub->dirY * sin(-(cub->rotatespeed));
-	cub->dirY = cub->oldDirX * sin(-(cub->rotatespeed)) +
-	cub->dirY * cos(-(cub->rotatespeed));
-	cub->oldPlaneX = cub->planeX;
-	cub->planeX = cub->planeX * cos(-(cub->rotatespeed)) -
-	cub->planeY * sin(-(cub->rotatespeed));
-	cub->planeY = cub->oldPlaneX * sin(-(cub->rotatespeed)) +
-	cub->planeY * cos(-(cub->rotatespeed));
+	cub->olddir_x = cub->dir_x;
+	cub->dir_x = cub->dir_x * cos(-(cub->rotatespeed)) -
+	cub->dir_y * sin(-(cub->rotatespeed));
+	cub->dir_y = cub->olddir_x * sin(-(cub->rotatespeed)) +
+	cub->dir_y * cos(-(cub->rotatespeed));
+	cub->oldplane_x = cub->plane_x;
+	cub->plane_x = cub->plane_x * cos(-(cub->rotatespeed)) -
+	cub->plane_y * sin(-(cub->rotatespeed));
+	cub->plane_y = cub->oldplane_x * sin(-(cub->rotatespeed)) +
+	cub->plane_y * cos(-(cub->rotatespeed));
 }
 
 static void	ft_rotate_left(t_cub *cub)
 {
-	cub->oldDirX = cub->dirX;
-	cub->dirX = cub->dirX * cos(cub->rotatespeed) -
-	cub->dirY * sin(cub->rotatespeed);
-	cub->dirY = cub->oldDirX * sin(cub->rotatespeed) +
-	cub->dirY * cos(cub->rotatespeed);
-	cub->oldPlaneX = cub->planeX;
-	cub->planeX = cub->planeX * cos(cub->rotatespeed) -
-	cub->planeY * sin(cub->rotatespeed);
-	cub->planeY = cub->oldPlaneX * sin(cub->rotatespeed) +
-	cub->planeY * cos(cub->rotatespeed);
+	cub->olddir_x = cub->dir_x;
+	cub->dir_x = cub->dir_x * cos(cub->rotatespeed) -
+	cub->dir_y * sin(cub->rotatespeed);
+	cub->dir_y = cub->olddir_x * sin(cub->rotatespeed) +
+	cub->dir_y * cos(cub->rotatespeed);
+	cub->oldplane_x = cub->plane_x;
+	cub->plane_x = cub->plane_x * cos(cub->rotatespeed) -
+	cub->plane_y * sin(cub->rotatespeed);
+	cub->plane_y = cub->oldplane_x * sin(cub->rotatespeed) +
+	cub->plane_y * cos(cub->rotatespeed);
 }
 
 void		ft_movement(t_cub *cub)

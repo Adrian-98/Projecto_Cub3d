@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:54:19 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/24 20:13:55 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:45:17 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void		ft_create_matrix(int fd, char *line, t_cub *cub)
 			if ('0' > line[j] || line[j] > '9')
 			{
 				cub->matrix[i][j] = 0;
-				cub->posX = i;
-				cub->posY = j;
+				cub->pos_x = i;
+				cub->pos_y = j;
 				ft_dir(cub, line[j]);
 			}
 			else if (line[j])
@@ -55,17 +55,17 @@ static void	ft_dir2(t_cub *cub, char c)
 {
 	if (c == 'E')
 	{
-		cub->dirX = 0;
-		cub->dirY = 1;
-		cub->planeX = 0.66;
-		cub->planeY = 0;
+		cub->dir_x = 0;
+		cub->dir_y = 1;
+		cub->plane_x = 0.66;
+		cub->plane_y = 0;
 	}
 	else if (c == 'W')
 	{
-		cub->dirX = 0;
-		cub->dirY = -1;
-		cub->planeX = -0.66;
-		cub->planeY = 0;
+		cub->dir_x = 0;
+		cub->dir_y = -1;
+		cub->plane_x = -0.66;
+		cub->plane_y = 0;
 	}
 }
 
@@ -73,17 +73,17 @@ void		ft_dir(t_cub *cub, char c)
 {
 	if (c == 'N')
 	{
-		cub->dirX = -1;
-		cub->dirY = 0;
-		cub->planeX = 0;
-		cub->planeY = 0.66;
+		cub->dir_x = -1;
+		cub->dir_y = 0;
+		cub->plane_x = 0;
+		cub->plane_y = 0.66;
 	}
 	else if (c == 'S')
 	{
-		cub->dirX = 1;
-		cub->dirY = 0;
-		cub->planeX = 0;
-		cub->planeY = -0.66;
+		cub->dir_x = 1;
+		cub->dir_y = 0;
+		cub->plane_x = 0;
+		cub->plane_y = -0.66;
 	}
 	else
 		ft_dir2(cub, c);

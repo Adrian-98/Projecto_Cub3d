@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 23:27:28 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:49:23 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,29 +119,27 @@ typedef struct	s_cub
 	double		*zbuffer;
 	int			lenline;
 	
-	double		posX;
-	double		posY;
-	double		dirX;
-	double		dirY;
-	double		oldDirX;
-	double		oldDirY;
-	double		planeX;
-	double		planeY;
-	double		oldPlaneX;
-	double		cameraX;
-	double		cameraY;
-	double		rayDirX;
-	double		rayDirY;
-	double		sideDistX;
-	double		sideDistY;
-	double		deltaDistX;
-	double		deltaDistY;
-	double		raydirX;
-	double		raydirY;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		olddir_x;
+	double		olddir_y;
+	double		plane_x;
+	double		plane_y;
+	double		oldplane_x;
+	double		camera_x;
+	double		camera_y;
+	double		raydir_x;
+	double		raydir_y;
+	double		sidedist_x;
+	double		sidedist_y;
+	double		deltadist_x;
+	double		deltadist_y;
 	double		perpWalldist;
 	double		rotatespeed;
-	int			drawStart;
-	int			drawEnd;
+	int			drawstart;
+	int			drawend;
 	double		movespeed;
 	
 	int			width;
@@ -150,11 +148,11 @@ typedef struct	s_cub
 	int			wall_color;
 	int			floor_color;
 	int			lineHeight;
-	int			mapX;
-	int			mapY;
+	int			map_x;
+	int			map_y;
 	int			hit;
-	int			stepX;
-	int			stepY;
+	int			step_x;
+	int			step_y;
 	int			side;
 	int			matrix[100][100];
 
@@ -166,9 +164,9 @@ typedef struct	s_cub
 	int			rotate_right;
 	
 	
-	int			texX;
-	int			texY;
-	double		wallX;
+	int			tex_x;
+	int			tex_y;
+	double		wall_x;
 	int			id;
 	t_texture	tex[20];
 

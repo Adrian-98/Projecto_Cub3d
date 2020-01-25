@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 21:01:23 by marandre          #+#    #+#             */
-/*   Updated: 2020/01/19 23:17:27 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/25 12:45:17 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	fill_struct(t_sprites_work *spw, t_cub *cub)
 {
-	spw->sp_x = cub->posX - cub->player->x_pos;
-	spw->sp_y = cub->posY - cub->player->y_pos;
-	spw->inv_det = 1.0 / (cub->planeX * cub->player->y_dir - cub->player->x_dir * cub->planeY);
+	spw->sp_x = cub->pos_x - cub->player->x_pos;
+	spw->sp_y = cub->pos_y - cub->player->y_pos;
+	spw->inv_det = 1.0 / (cub->plane_x * cub->player->y_dir - cub->player->x_dir * cub->plane_y);
 	spw->transform_x = spw->inv_det *
 		(cub->player->y_dir * spw->sp_x - cub->player->x_dir * spw->sp_y);
 	spw->transform_y = spw->inv_det *
-		(-cub->planeY * spw->sp_x + cub->planeX * spw->sp_y);
+		(-cub->plane_y * spw->sp_x + cub->plane_x * spw->sp_y);
 	spw->sp_screen_x = (int)((cub->window.window_width / 2) *
 		(1 + spw->transform_x / spw->transform_y));
 	spw->vms = (int)(96 / spw->transform_y);

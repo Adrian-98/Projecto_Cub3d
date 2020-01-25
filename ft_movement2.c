@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:20:05 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/24 20:20:28 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:44:29 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	ft_walk_left(t_cub *cub)
 {
-	if (cub->matrix[(int)(cub->posX - cub->dirY *
-	cub->movespeed)][(int)cub->posY] == 0)
-		cub->posX = cub->posX - cub->dirY * cub->movespeed;
-	if (cub->matrix[(int)cub->posX][(int)(cub->posY +
-	cub->dirX * cub->movespeed)] == 0)
-		cub->posY = cub->posY + cub->dirX * cub->movespeed;
+	if (cub->matrix[(int)(cub->pos_x - cub->dir_y *
+	cub->movespeed)][(int)cub->pos_y] == 0)
+		cub->pos_x = cub->pos_x - cub->dir_y * cub->movespeed;
+	if (cub->matrix[(int)cub->pos_x][(int)(cub->pos_y +
+	cub->dir_x * cub->movespeed)] == 0)
+		cub->pos_y = cub->pos_y + cub->dir_x * cub->movespeed;
 }
 
 void	ft_walk_right(t_cub *cub)
 {
-	if (cub->matrix[(int)(cub->posX + cub->dirY *
-	cub->movespeed)][(int)cub->posY] == 0)
-		cub->posX = cub->posX + cub->dirY * cub->movespeed;
-	if (cub->matrix[(int)cub->posX][(int)(cub->posY -
-	cub->dirX * cub->movespeed)] == 0)
-		cub->posY = cub->posY - cub->dirX * cub->movespeed;
+	if (cub->matrix[(int)(cub->pos_x + cub->dir_y *
+	cub->movespeed)][(int)cub->pos_y] == 0)
+		cub->pos_x = cub->pos_x + cub->dir_y * cub->movespeed;
+	if (cub->matrix[(int)cub->pos_x][(int)(cub->pos_y -
+	cub->dir_x * cub->movespeed)] == 0)
+		cub->pos_y = cub->pos_y - cub->dir_x * cub->movespeed;
 }

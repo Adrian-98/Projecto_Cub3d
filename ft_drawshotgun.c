@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 15:11:02 by adrian            #+#    #+#             */
-/*   Updated: 2020/01/24 19:37:26 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:43:30 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,45 +26,45 @@ static void	ft_continue(t_cub *cub)
 	}
 }
 
-static void	animate_shotgun(t_cub *cub, int posx, int posy)
+static void	animate_shotgun(t_cub *cub, int pos_x, int pos_y)
 {
 	if (cub->player.fr >= 15 && cub->player.reload == 0)
 		mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
-		cub->tex[16].img, posx, posy);
+		cub->tex[16].img, pos_x, pos_y);
 	else if (cub->player.fr >= 12 && cub->player.fr <= 14
 		&& cub->player.reload == 0)
 		mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
-		cub->tex[17].img, posx, posy);
+		cub->tex[17].img, pos_x, pos_y);
 	else if (cub->player.fr >= 10 && cub->player.fr <= 11
 		&& cub->player.reload == 0)
 		mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
-		cub->tex[18].img, posx, posy);
+		cub->tex[18].img, pos_x, pos_y);
 	else if (cub->player.fr >= 7 && cub->player.fr <= 9 &&
 	cub->player.reload == 0)
 		mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
-		cub->tex[19].img, posx, posy);
+		cub->tex[19].img, pos_x, pos_y);
 	else if (cub->player.fr >= 5 && cub->player.fr <= 7 &&
 	cub->player.reload == 0)
 		mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
-		cub->tex[19].img, posx, posy);
+		cub->tex[19].img, pos_x, pos_y);
 	else if (cub->player.fr >= 1 && cub->player.fr <= 4 &&
 	cub->player.reload == 0)
 		mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
-		cub->tex[17].img, posx, posy);
+		cub->tex[17].img, pos_x, pos_y);
 	cub->player.fr--;
 	ft_continue(cub);
 }
 
 void		draw_gun(t_cub *cub)
 {
-	int posx;
-	int posy;
+	int pos_x;
+	int pos_y;
 
-	posx = (cub->width - 400) / 2;
-	posy = cub->height - 400;
+	pos_x = (cub->width - 400) / 2;
+	pos_y = cub->height - 400;
 	if (cub->player.shooting == 0)
 		mlx_put_image_to_window(cub->mlx_ptr,
-		cub->win_ptr, cub->tex[15].img, posx, posy);
+		cub->win_ptr, cub->tex[15].img, pos_x, pos_y);
 	else
 	{
 		if (cub->player.fr == 17 && (cub->player.fr--))
@@ -77,6 +77,6 @@ void		draw_gun(t_cub *cub)
 			else
 				cub->player.reload = 1;
 		}
-		animate_shotgun(cub, posx, posy);
+		animate_shotgun(cub, pos_x, pos_y);
 	}
 }

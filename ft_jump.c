@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_jump.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 19:32:57 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/22 15:25:37 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/25 12:47:53 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			ft_crouch_jump(t_cub *cub)
 {
 	if (cub->crouch == 1)
 	{
-		cub->drawEnd -= 20;
-		cub->drawStart -= 20;
+		cub->drawend -= 20;
+		cub->drawstart -= 20;
 	}
 }

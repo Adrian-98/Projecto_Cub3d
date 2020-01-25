@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:03:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/24 20:09:34 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:48:43 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	init_values(t_cub *cub, int x)
 {
 	cub->wall_color = 0x56050;
 	cub->hit = 0;
-	cub->cameraX = 2 * x / (double)cub->width - 1;
-	cub->rayDirX = cub->dirX + cub->planeX * cub->cameraX;
-	cub->rayDirY = cub->dirY + cub->planeY * cub->cameraX;
-	cub->mapX = (int)cub->posX;
-	cub->mapY = (int)cub->posY;
-	cub->deltaDistX = fabs(1 / cub->rayDirX);
-	cub->deltaDistY = fabs(1 / cub->rayDirY);
+	cub->camera_x = 2 * x / (double)cub->width - 1;
+	cub->raydir_x = cub->dir_x + cub->plane_x * cub->camera_x;
+	cub->raydir_y = cub->dir_y + cub->plane_y * cub->camera_x;
+	cub->map_x = (int)cub->pos_x;
+	cub->map_y = (int)cub->pos_y;
+	cub->deltadist_x = fabs(1 / cub->raydir_x);
+	cub->deltadist_y = fabs(1 / cub->raydir_y);
 }
 
 void	draw_sky(t_cub *cub)
@@ -54,24 +54,24 @@ void	draw_sky(t_cub *cub)
 
 void	next_step(t_cub *cub)
 {
-	if (cub->rayDirX < 0)
+	if (cub->raydir_x < 0)
 	{
-		cub->stepX = -1;
-		cub->sideDistX = (cub->posX - cub->mapX) * cub->deltaDistX;
+		cub->step_x = -1;
+		cub->sidedist_x = (cub->pos_x - cub->map_x) * cub->deltadist_x;
 	}
 	else
 	{
-		cub->stepX = 1;
-		cub->sideDistX = (cub->mapX + 1.0 - cub->posX) * cub->deltaDistX;
+		cub->step_x = 1;
+		cub->sidedist_x = (cub->map_x + 1.0 - cub->pos_x) * cub->deltadist_x;
 	}
-	if (cub->rayDirY < 0)
+	if (cub->raydir_y < 0)
 	{
-		cub->stepY = -1;
-		cub->sideDistY = (cub->posY - cub->mapY) * cub->deltaDistY;
+		cub->step_y = -1;
+		cub->sidedist_y = (cub->pos_y - cub->map_y) * cub->deltadist_y;
 	}
 	else
 	{
-		cub->stepY = 1;
-		cub->sideDistY = (cub->mapY + 1.0 - cub->posY) * cub->deltaDistY;
+		cub->step_y = 1;
+		cub->sidedist_y = (cub->map_y + 1.0 - cub->pos_y) * cub->deltadist_y;
 	}
 }

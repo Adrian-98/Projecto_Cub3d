@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/24 20:19:09 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:49:23 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ static void	hit(t_cub *cub)
 {
 	while (cub->hit == 0)
 	{
-		if (cub->sideDistX < cub->sideDistY)
+		if (cub->sidedist_x < cub->sidedist_y)
 		{
-			cub->sideDistX += cub->deltaDistX;
-			cub->mapX += cub->stepX;
+			cub->sidedist_x += cub->deltadist_x;
+			cub->map_x += cub->step_x;
 			cub->side = 0;
 		}
 		else
 		{
-			cub->sideDistY += cub->deltaDistY;
-			cub->mapY += cub->stepY;
+			cub->sidedist_y += cub->deltadist_y;
+			cub->map_y += cub->step_y;
 			cub->side = 1;
 		}
-		if (cub->matrix[cub->mapX][cub->mapY] > 0)
+		if (cub->matrix[cub->map_x][cub->map_y] > 0)
 			cub->hit = 1;
 	}
 }
@@ -37,50 +37,50 @@ static void	cubside2(t_cub *cub)
 {
 	if (cub->hit == 1)
 	{
-		if (cub->side == 0 && cub->posX > cub->mapX)
+		if (cub->side == 0 && cub->pos_x > cub->map_x)
 			cub->side = 6;
-		else if (cub->side == 1 && cub->posY < cub->mapY)
+		else if (cub->side == 1 && cub->pos_y < cub->map_y)
 			cub->side = 3;
 	}
-	cub->id = cub->matrix[cub->mapX][cub->mapY] + cub->side;
-	cub->wallX -= floor((cub->wallX));
-	cub->texX = abs((int)(cub->wallX * (double)(64)));
+	cub->id = cub->matrix[cub->map_x][cub->map_y] + cub->side;
+	cub->wall_x -= floor((cub->wall_x));
+	cub->tex_x = abs((int)(cub->wall_x * (double)(64)));
 	ft_crouch_jump(cub);
 }
 
 static void	wall_texture(t_cub *cub, int x)
 {
-	while (cub->drawStart <= cub->drawEnd)
+	while (cub->drawstart <= cub->drawend)
 	{
-		cub->texY = abs((((cub->drawStart * 256 - cub->height * 128 +
+		cub->tex_y = abs((((cub->drawstart * 256 - cub->height * 128 +
 					cub->lineHeight * 128) * 64) / cub->lineHeight) / 256);
-		ft_memcpy(cub->data + 4 * cub->width * cub->drawStart + x * 4,
-				&cub->tex[cub->id].data[cub->texY % cub->height *
-				cub->tex[cub->id].size_line + cub->texX % cub->width *
+		ft_memcpy(cub->data + 4 * cub->width * cub->drawstart + x * 4,
+				&cub->tex[cub->id].data[cub->tex_y % cub->height *
+				cub->tex[cub->id].size_line + cub->tex_x % cub->width *
 				cub->tex[cub->id].bpp / 8], sizeof(int));
-		cub->drawStart++;
+		cub->drawstart++;
 	}
 }
 
 static void	cubside(t_cub *cub)
 {
 	if (cub->side == 0)
-		cub->perpWalldist = (cub->mapX - cub->posX +
-		(1 - cub->stepX) / 2) / cub->rayDirX;
+		cub->perpWalldist = (cub->map_x - cub->pos_x +
+		(1 - cub->step_x) / 2) / cub->raydir_x;
 	else
-		cub->perpWalldist = (cub->mapY - cub->posY +
-		(1 - cub->stepY) / 2) / cub->rayDirY;
+		cub->perpWalldist = (cub->map_y - cub->pos_y +
+		(1 - cub->step_y) / 2) / cub->raydir_y;
 	cub->lineHeight = (int)(cub->height / cub->perpWalldist);
-	cub->drawStart = -cub->lineHeight / 2 + cub->height / 2;
-	if (cub->drawStart < 0)
-		cub->drawStart = 0;
-	cub->drawEnd = cub->lineHeight / 2 + cub->height / 2;
-	if (cub->drawEnd >= cub->height)
-		cub->drawEnd = cub->height - 1;
+	cub->drawstart = -cub->lineHeight / 2 + cub->height / 2;
+	if (cub->drawstart < 0)
+		cub->drawstart = 0;
+	cub->drawend = cub->lineHeight / 2 + cub->height / 2;
+	if (cub->drawend >= cub->height)
+		cub->drawend = cub->height - 1;
 	if (cub->side == 0)
-		cub->wallX = cub->posY + cub->perpWalldist * cub->rayDirY;
+		cub->wall_x = cub->pos_y + cub->perpWalldist * cub->raydir_y;
 	else
-		cub->wallX = cub->posX + cub->perpWalldist * cub->rayDirX;
+		cub->wall_x = cub->pos_x + cub->perpWalldist * cub->raydir_x;
 }
 
 int			ft_loop(t_cub *cub)
