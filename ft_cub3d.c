@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 23:28:22 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 14:04:14 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ int			cub3d(t_cub *cub)
 		return (0);
 	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
 	return (1);
+}
+
+int				mouse_functions(int x, int y, t_cub *cub)
+{
+	cub->dir_x = cos((x * 720 / cub->width) * M_PI / 180);
+	cub->dir_y = sin((x * 720 / cub->width) * M_PI / 180);
+	cub->plane_x = 0.66 * cub->dir_y;
+	cub->plane_y = -0.66 * cub->dir_x;
+	(void)y;
+
+	return (0);
 }
 
 void		ft_inicialize(t_cub *cub)
@@ -55,6 +66,7 @@ void		principal(char **argv, t_cub *cub)
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");
 	load_cubs(cub);
+	mlx_hook(cub->win_ptr, 6, 0, mouse_functions, cub);
 	mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
 	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
 	mlx_hook(cub->win_ptr, 17, 0, close_window, cub);
