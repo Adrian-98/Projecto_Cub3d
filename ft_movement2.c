@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:20:05 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 19:22:51 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:52:17 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_walk_left(t_cub *cub)
 {
-	printf("L: %d\n", cub->matrix[(int)(cub->pos_x - cub->dir_y *
-	cub->movespeed)][(int)cub->pos_y]);
 	if (cub->matrix[(int)(cub->pos_x - cub->dir_y *
 	cub->movespeed)][(int)cub->pos_y] == 0)
 		cub->pos_x = cub->pos_x - cub->dir_y * cub->movespeed;
@@ -26,8 +24,6 @@ void	ft_walk_left(t_cub *cub)
 
 void	ft_walk_right(t_cub *cub)
 {
-	printf("R: %d\n", cub->matrix[(int)(cub->pos_x + cub->dir_y *
-	cub->movespeed)][(int)cub->pos_y]);
 	if (cub->matrix[(int)(cub->pos_x + cub->dir_y *
 	cub->movespeed)][(int)cub->pos_y] == 0)
 		cub->pos_x = cub->pos_x + cub->dir_y * cub->movespeed;

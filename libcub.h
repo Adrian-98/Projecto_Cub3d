@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 19:07:56 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:48:30 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 
 typedef struct				s_player
 {
-	short					life;
+	double					life;
 	short					bullets;
 	char					*name;
 	int						shooting;
@@ -182,5 +182,6 @@ void		principal2(char **argv, t_cub *cub);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			cub3d(t_cub *cub);
 void		draw_sprites(t_cub *cub);
+void		kill(t_cub *cub);
 
 # endif

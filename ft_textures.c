@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:15:21 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 18:56:35 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:02:21 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ static void	load3(t_cub *cub)
 	"textures/cristal.xpm", &a, &b);
 	cub->tex[9].data = mlx_get_data_addr(cub->tex[9].img, &cub->tex[9].bpp,
 			&cub->tex[9].size_line, &cub->tex[9].endian);
+	cub->tex[21].img = mlx_xpm_file_to_image(cub->mlx_ptr,
+	"textures/lava.xpm", &a, &b);
+	cub->tex[21].data = mlx_get_data_addr(cub->tex[9].img, &cub->tex[9].bpp,
+			&cub->tex[9].size_line, &cub->tex[9].endian);
 	setup_shotgun(cub);
 }
 
@@ -84,7 +88,7 @@ static void	load2(t_cub *cub)
 	&cub->tex[5].size_line, &cub->tex[5].endian);
 	load3(cub);
 	cub->tex[20].img = mlx_xpm_file_to_image(cub->mlx_ptr,
-	"textures/eagle.xpm", &a, &b);
+	"textures/skeleton.xpm", &a, &b);
 	cub->tex[20].data = mlx_get_data_addr(cub->tex[20].img, &cub->tex[20].bpp,
 			&cub->tex[20].size_line, &cub->tex[20].endian);
 }

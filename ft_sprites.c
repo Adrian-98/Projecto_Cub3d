@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 19:19:25 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:57:27 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,22 @@ void		draw_sprites(t_cub *cub)
 				}
 				y++;
 			}
+		}
+	}
+}
+
+void		kill(t_cub *cub)
+{
+	printf("%f\n", cub->player.life);
+	if (cub->pos_x <= cub->sprite_posx + 1 &&
+		cub->pos_x >= cub->sprite_posx - 1)
+	{
+		system("afplay ./sounds/auch.mp3& 2&>/dev/null >/dev/null");
+		cub->player.life = cub->player.life - 4;
+		if (cub->player.life <= 0.0)
+		{
+			mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr,
+			cub->tex[21].img, 0, 0);
 		}
 	}
 }

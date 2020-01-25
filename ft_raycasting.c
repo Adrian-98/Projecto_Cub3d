@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 19:10:02 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:52:47 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int			ft_loop(t_cub *cub)
 
 	x = 0;
 	ft_movement(cub);
+
 	cub->img = mlx_new_image(cub->mlx_ptr, cub->width, cub->height);
 	cub->data = mlx_get_data_addr(cub->img, &cub->bpp,
 	&cub->size_line, &cub->endian);
@@ -109,6 +110,7 @@ int			ft_loop(t_cub *cub)
 	}
 	draw_sprites(cub);
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
+	kill(cub);
 	draw_gun(cub);
 	return (0);
 }
