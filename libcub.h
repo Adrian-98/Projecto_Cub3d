@@ -6,7 +6,11 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/01/25 13:47:32 by amunoz-p         ###   ########.fr       */
+=======
+/*   Updated: 2020/01/19 20:38:39 by adrian           ###   ########.fr       */
+>>>>>>> c3041d79049f1426fdcf9c91275b94d12f0e9ee9
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +34,12 @@
 # define Y 1080
 # define texHeight 64
 # define texWidth 64
+<<<<<<< HEAD
 # define ROTATION_COEFF (float)M_PI / 1920 * 90 / 4
+=======
+# define WINX 1920
+# define WINY 1080
+>>>>>>> c3041d79049f1426fdcf9c91275b94d12f0e9ee9
 
 typedef struct	s_texture
 {

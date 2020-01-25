@@ -6,7 +6,7 @@
 /*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:15:21 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/16 22:38:13 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/19 20:58:58 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,13 @@ void	load_cubs(t_cub *cub)
 			&cub->tex[5].size_line, &cub->tex[5].endian);
 	a = 512;
 	b = 512;
-	cub->tex[6].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/sky.xpm", &a, &b);
+	cub->tex[6].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/sky2.xpm", &a, &b);
 	cub->tex[6].data = mlx_get_data_addr(cub->tex[6].img, &cub->tex[6].bpp,
 			&cub->tex[6].size_line, &cub->tex[6].endian);
+	cub->tex[8].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/sand.xpm", &a, &b);
+	cub->tex[8].data = mlx_get_data_addr(cub->tex[8].img, &cub->tex[8].bpp,
+			&cub->tex[8].size_line, &cub->tex[8].endian);
+	cub->tex[9].img = mlx_xpm_file_to_image(cub->mlx_ptr, "textures/cristal.xpm", &a, &b);
+	cub->tex[9].data = mlx_get_data_addr(cub->tex[9].img, &cub->tex[9].bpp,
+			&cub->tex[9].size_line, &cub->tex[9].endian);
 }
