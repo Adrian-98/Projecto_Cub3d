@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 12:49:23 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:10:59 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,47 +33,11 @@
 # define WINX 1920
 # define WINY 1080
 
-typedef struct				s_sprites_work
-{
-	double					sp_x;
-	double					sp_y;
-	double					inv_det;
-	double					transform_x;
-	double					transform_y;
-	int						sp_screen_x;
-	int						vms;
-	int						sp_height;
-	int						draw_start_y;
-	int						draw_end_y;
-	int						sp_width;
-	int						draw_start_x;
-	int						draw_end_x;
-	int						stripe;
-	int						tex_x;
-	int						y;
-	int						d;
-	int						tex_y;
-	int						color;
-}							t_sprites_work;
-
-typedef struct				s_window
-{
-	void					*mlx;
-	void					*win;
-	void					*img;
-	void					*img_ptr;
-	int						window_width;
-	int						window_height;
-	int						bpp;
-	int						endian;
-	int						sl;
-}							t_window;
-
 typedef struct				s_sprites
 {
 	int						x;
 	int						y;
-	int						tex_index;
+	int						texture;
 }							t_sprites;
 
 typedef struct				s_player
@@ -113,9 +77,9 @@ typedef struct	s_cub
 	int			size_line;
 	int			endian;
 
-	t_sprites	*sprites;
+	t_sprites	*sprite;
 	t_player	player;
-	t_window	window;
+
 	double		*zbuffer;
 	int			lenline;
 	

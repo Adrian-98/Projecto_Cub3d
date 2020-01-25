@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 14:04:14 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:09:16 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int			cub3d(t_cub *cub)
 	cub->player.reload = 0;
 	cub->player.x_pos += 0.5;
 	cub->player.y_pos += 0.5;
-	if (!(cub->zbuffer = malloc(sizeof(double) * cub->window.window_width)))
+	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
 	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
 	return (1);
 }
 
-int				mouse_functions(int x, int y, t_cub *cub)
+int			mouse_functions(int x, int y, t_cub *cub)
 {
 	cub->dir_x = cos((x * 720 / cub->width) * M_PI / 180);
 	cub->dir_y = sin((x * 720 / cub->width) * M_PI / 180);
@@ -86,7 +86,6 @@ int			main(int argc, char **argv)
 		principal(&argv[1], cub);
 	else if (argc == 3 && ft_strncmp("--save", argv[2], 6) == 0)
 	{
-		printf("\nhola\n");
 		principal2(&argv[1], cub);
 	}
 	else
