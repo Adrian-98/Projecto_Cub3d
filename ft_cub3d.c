@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cub3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 20:53:31 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/26 14:53:07 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			cub3d(t_cub *cub)
 	cub->sprite_hit = 0;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
-	system("afplay ./sounds/sound.mp3& 2&>/dev/null >/dev/null");
+	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
 
 	return (1);
 }
@@ -44,7 +44,7 @@ int			mouse_functions(int x, int y, t_cub *cub)
 
 void		ft_inicialize(t_cub *cub)
 {
-	cub->width = 900;
+	cub->width = 1000;
 	cub->height = 700;
 	cub->movespeed = 0.08;
 	cub->rotatespeed = 0.08;

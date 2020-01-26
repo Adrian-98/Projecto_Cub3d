@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libcub.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/25 20:48:30 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/26 14:17:34 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,5 +183,6 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			cub3d(t_cub *cub);
 void		draw_sprites(t_cub *cub);
 void		kill(t_cub *cub);
+void		game_over(t_cub *cub);
 
 # endif
