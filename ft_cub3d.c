@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/27 20:10:30 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 20:23:36 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			cub3d(t_cub *cub)
 	cub->sprite_on = 0;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
-	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
+	system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
 
 	return (1);
 }
@@ -67,7 +67,7 @@ void		principal(char **argv, t_cub *cub)
 	mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
 	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
 	mlx_hook(cub->win_ptr, 17, 0, close_window, cub);
-	//mlx_hook(cub->win_ptr, 6, 0, mouse_functions, cub);
+	mlx_hook(cub->win_ptr, 6, 0, mouse_functions, cub);
 	mlx_loop_hook(cub->mlx_ptr, ft_loop, cub);
 	mlx_loop(cub->mlx_ptr);
 	free(cub);
