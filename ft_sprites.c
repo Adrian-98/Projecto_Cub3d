@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/27 16:48:05 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:12:44 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,29 @@ void		draw_sprites(t_cub *cub)
 
 void		kill(t_cub *cub)
 {
-	if (cub->pos_x <= cub->sprite_posx + 3 &&
-		cub->pos_x >= cub->sprite_posx - 3 && cub->pos_y <= cub->sprite_posy + 3 &&
-		cub->pos_y >= cub->sprite_posy - 3)
+	if (cub->sprite_on == 1)
 	{
-		if (cub->player.life > 90 && cub->player.life < 100)
-			system("afplay ./sounds/auch.mp3& 2&>/dev/null >/dev/null");
-		if (cub->player.life < 0 && cub->player.life > -10)	
-			system("afplay ./sounds/gameover.mp3& 2&>/dev/null >/dev/null");
-		cub->player.life = cub->player.life - 3;
+		if (cub->pos_x <= cub->sprite_posx + 3 &&
+			cub->pos_x >= cub->sprite_posx - 3 && cub->pos_y
+			<= cub->sprite_posy + 3 &&
+			cub->pos_y >= cub->sprite_posy - 3)
+		{
+			if (cub->player.life > 90 && cub->player.life < 100)
+				system("afplay ./sounds/auch.mp3& 2&>/dev/null >/dev/null");
+			if (cub->player.life < 0 && cub->player.life > -10)
+				system("afplay ./sounds/gameover.mp3& 2&>/dev/null >/dev/null");
+			cub->player.life = cub->player.life - 3;
+		}
+	}
+	if (cub->pos_x <= cub->sprite_posx + 7 &&
+		cub->pos_x >= cub->sprite_posx - 7 && cub->pos_y
+		<= cub->sprite_posy + 7 &&
+		cub->pos_y >= cub->sprite_posy - 7)
+	{
+		if (cub->player.shooting == 1)
+		{
+			cub->matrix[cub->sprite_posx][cub->sprite_posy] = 0;
+			cub->sprite_on = 0;
+		}
 	}
 }

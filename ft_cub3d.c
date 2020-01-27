@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cub3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/26 14:53:07 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/27 17:01:13 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			cub3d(t_cub *cub)
 	cub->player.x_pos += 0.5;
 	cub->player.y_pos += 0.5;
 	cub->sprite_hit = 0;
+	cub->sprite_on = 0;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
 	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");

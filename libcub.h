@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libcub.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/26 14:17:34 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/27 17:00:59 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct	s_cub
 	int			sprite_hit;
 	int			sprite_posx;
 	int			sprite_posy;
+	int			sprite_on;
 	
 	double		pos_x;
 	double		pos_y;

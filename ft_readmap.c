@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:54:19 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 20:12:10 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:09:15 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ void		ft_create_matrix(int fd, char *line, t_cub *cub)
 			}
 			else if (line[j])
 			{
-				if (line[j] == '2')
-				{
-					cub->sprite_posx = i;
-					cub->sprite_posy = j;
-				}
 				cub->matrix[i][j] = line[j] - '0';
 			}
 			j++;

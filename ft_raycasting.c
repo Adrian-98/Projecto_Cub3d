@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/26 15:15:11 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/27 17:02:26 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ static void	hit(t_cub *cub)
 		}
 		if (cub->matrix[cub->map_x][cub->map_y] == 1)
 			cub->hit = 1;
+		if (cub->matrix[cub->map_x][cub->map_y] == 2)
+		{
+			cub->sprite_on = 1;
+			cub->sprite_posx = cub->map_x;
+			cub->sprite_posy = cub->map_y;
+		}
 	}
 }
 
@@ -107,7 +113,8 @@ int			ft_loop(t_cub *cub)
 		cub->zbuffer[x] = cub->perpwalldist;
 		x++;
 	}
-	draw_sprites(cub);
+	if (cub->sprite_on == 1)
+		draw_sprites(cub);
 	if (cub->player.life <= 0.0)
 		game_over(cub);
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->img, 0, 0);
