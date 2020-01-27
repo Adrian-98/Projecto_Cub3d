@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_textures.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:15:21 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/26 14:54:38 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/27 19:48:54 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,8 @@ static void	load2(t_cub *cub)
 
 	a = 64;
 	b = 64;
-	cub->tex[3].img = mlx_xpm_file_to_image(cub->mlx_ptr,
-			"textures/redbrick.xpm", &a, &b);
-	cub->tex[3].data = mlx_get_data_addr(cub->tex[3].img, &cub->tex[3].bpp,
-			&cub->tex[3].size_line, &cub->tex[3].endian);
 	cub->tex[4].img = mlx_xpm_file_to_image(cub->mlx_ptr,
-	"textures/stone.xpm", &a, &b);
+	cub->west, &a, &b);
 	cub->tex[4].data = mlx_get_data_addr(cub->tex[4].img, &cub->tex[4].bpp,
 			&cub->tex[4].size_line, &cub->tex[4].endian);
 	cub->tex[5].img = mlx_xpm_file_to_image(cub->mlx_ptr,
@@ -88,7 +84,7 @@ static void	load2(t_cub *cub)
 	&cub->tex[5].size_line, &cub->tex[5].endian);
 	load3(cub);
 	cub->tex[20].img = mlx_xpm_file_to_image(cub->mlx_ptr,
-	"textures/chest.xpm", &a, &b);
+	cub->spriteee, &a, &b);
 	cub->tex[20].data = mlx_get_data_addr(cub->tex[20].img, &cub->tex[20].bpp,
 			&cub->tex[20].size_line, &cub->tex[20].endian);
 }
@@ -101,11 +97,11 @@ void		load_cubs(t_cub *cub)
 	a = 64;
 	b = 64;
 	cub->tex[7].img = mlx_xpm_file_to_image(cub->mlx_ptr,
-	"textures/wood.xpm", &a, &b);
+	cub->north, &a, &b);
 	cub->tex[7].data = mlx_get_data_addr(cub->tex[7].img, &cub->tex[7].bpp,
 			&cub->tex[7].size_line, &cub->tex[7].endian);
 	cub->tex[1].img = mlx_xpm_file_to_image(cub->mlx_ptr,
-	"textures/redbrick.xpm", &a, &b);
+	cub->south, &a, &b);
 	cub->tex[1].data = mlx_get_data_addr(cub->tex[1].img, &cub->tex[1].bpp,
 			&cub->tex[1].size_line, &cub->tex[1].endian);
 	cub->tex[2].img = mlx_xpm_file_to_image(cub->mlx_ptr,

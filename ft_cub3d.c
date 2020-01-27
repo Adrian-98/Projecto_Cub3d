@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/27 17:01:13 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 20:10:30 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 int			cub3d(t_cub *cub)
 {
+	cub->width = 1000;
+	cub->height = 700;
+	cub->movespeed = 0.08;
+	cub->rotatespeed = 0.08;
+	cub->crouch = 0;
+	cub->shot = 0;
+	cub->sprite_count = 0;
 	cub->lenline = -1;
 	cub->player.shooting = 0;
 	cub->player.fr = 17;
@@ -43,19 +50,6 @@ int			mouse_functions(int x, int y, t_cub *cub)
 	return (0);
 }
 
-void		ft_inicialize(t_cub *cub)
-{
-	cub->width = 1000;
-	cub->height = 700;
-	cub->movespeed = 0.08;
-	cub->rotatespeed = 0.08;
-	cub->sky_color = 4626496;
-	cub->wall_color = 0x56050;
-	cub->floor_color = 48878;
-	cub->crouch = 0;
-	cub->shot = 0;
-}
-
 void		principal(char **argv, t_cub *cub)
 {
 	int		fd;
@@ -63,7 +57,8 @@ void		principal(char **argv, t_cub *cub)
 
 	line = malloc(sizeof(char *));
 	fd = open(*argv, O_RDONLY);
-	cub3d(cub);
+	if (cub3d(cub) != 1)
+		ft_error();
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
@@ -84,7 +79,6 @@ int			main(int argc, char **argv)
 
 	if (!(cub = malloc(sizeof(t_cub))))
 		ft_error();
-	ft_inicialize(cub);
 	if (argc == 2)
 		principal(&argv[1], cub);
 	else if (argc == 3 && ft_strncmp("--save", argv[2], 6) == 0)

@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/27 17:12:44 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 20:12:57 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,20 @@ void		kill(t_cub *cub)
 		<= cub->sprite_posy + 7 &&
 		cub->pos_y >= cub->sprite_posy - 7)
 	{
-		if (cub->player.shooting == 1)
+		if (cub->player.shooting == 1 && cub->transform_x >= -0.5
+		&& cub->transform_x <= 0.5)
 		{
 			cub->matrix[cub->sprite_posx][cub->sprite_posy] = 0;
 			cub->sprite_on = 0;
+			cub->sprite_count -= 3;
 		}
+	}
+	char a;
+	a = 'a';
+	printf("%d\n", cub->sprite_count);
+	if (cub->sprite_count < 0 && a == 'a')
+	{
+		a = 'b';
+		system("afplay ./sounds/victory.mp3& 2&>/dev/null >/dev/null");
 	}
 }

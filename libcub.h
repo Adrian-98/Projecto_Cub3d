@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/27 17:23:31 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 19:59:24 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,14 @@ typedef struct	s_cub
 	int			sprite_posx;
 	int			sprite_posy;
 	int			sprite_on;
+	int			sprite_count;
 	
-	char		*no;
-	char		*ea;
-	char		*so;
-	char		*we;
-	char		*sp;
+	char		resolution[100];
+	char		*north;
+	char		*east;
+	char		*south;
+	char		*west;
+	char		*spriteee;
 	
 	double		pos_x;
 	double		pos_y;
@@ -154,7 +156,7 @@ typedef struct	s_cub
 	int			crouch;
 }				t_cub;
 
-
+int			ft_atoi(const char *str);
 void		draw_gun(t_cub *cub);
 char		*ft_itoa(int n);
 void		fps(t_cub *cub);
