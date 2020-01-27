@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:54:19 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/27 17:09:15 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:25:23 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ void		ft_create_matrix(int fd, char *line, t_cub *cub)
 		j = 0;
 		while (line[j])
 		{
-			if ('0' > line[j] || line[j] > '9')
+			if (line[0] == 'R')
+			{
+				
+			}
+			else if (line[j] == 'W' || line[j] == 'N'
+				|| line[j] == 'S' || line[j] == 'E')
 			{
 				cub->matrix[i][j] = 0;
 				cub->pos_x = i;

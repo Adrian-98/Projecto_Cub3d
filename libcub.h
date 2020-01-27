@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/27 17:00:59 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:23:31 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,12 @@ typedef struct	s_cub
 	int			sprite_posx;
 	int			sprite_posy;
 	int			sprite_on;
+	
+	char		*no;
+	char		*ea;
+	char		*so;
+	char		*we;
+	char		*sp;
 	
 	double		pos_x;
 	double		pos_y;
