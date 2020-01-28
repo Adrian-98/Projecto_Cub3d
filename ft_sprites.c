@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/27 20:20:34 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:55:13 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ void		kill(t_cub *cub)
 			cub->sprite_count -= 1;
 		}
 	}
-	printf("%d\n", cub->sprite_count);
-	if (cub->sprite_count < 5 && cub->sprite_count > 3)
+	if (cub->sprite_count <= 5 && cub->sprite_count > 3)
 	{
 		system("afplay ./sounds/victory.mp3& 2&>/dev/null >/dev/null");
 	}

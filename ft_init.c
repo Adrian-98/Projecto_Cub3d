@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:03:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 12:48:43 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:45:29 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ void	draw_sky(t_cub *cub)
 		}
 		while (y < cub->height)
 		{
-			ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
-			&cub->tex[9].data[y % 218 * cub->tex[9].size_line +
-			x % 512 * cub->tex[9].bpp / 8], sizeof(int));
+			ft_memcpy(cub->data + 4 * cub->width * y +
+			x * 4, &cub->floor_color, sizeof(int));
 			y++;
 		}
 		x++;

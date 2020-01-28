@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/27 20:23:36 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:52:41 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			cub3d(t_cub *cub)
 	cub->width = 1000;
 	cub->height = 700;
 	cub->movespeed = 0.08;
-	cub->rotatespeed = 0.08;
+	cub->rotatespeed = 0.05;
 	cub->crouch = 0;
 	cub->shot = 0;
 	cub->sprite_count = 0;
@@ -32,6 +32,7 @@ int			cub3d(t_cub *cub)
 	cub->player.y_pos += 0.5;
 	cub->sprite_hit = 0;
 	cub->sprite_on = 0;
+	cub->floor_color = 0xFFFFFF;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
 	system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
@@ -41,8 +42,8 @@ int			cub3d(t_cub *cub)
 
 int			mouse_functions(int x, int y, t_cub *cub)
 {
-	cub->dir_x = cos((x * 720 / cub->width) * M_PI / 180);
-	cub->dir_y = sin((x * 720 / cub->width) * M_PI / 180);
+	cub->dir_x = sin((x * 720 / cub->width) * M_PI / 180);
+	cub->dir_y = cos((x * 720 / cub->width) * M_PI / 180);
 	cub->plane_x = 0.66 * cub->dir_y;
 	cub->plane_y = -0.66 * cub->dir_x;
 	(void)y;
