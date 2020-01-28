@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/28 16:00:45 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:44:51 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct	s_cub
 
 	t_player	player;
 
-	int		*zbuffer;
+	int			*zbuffer;
 	int			lenline;
 	
 	double		inv_det;
@@ -136,7 +136,7 @@ typedef struct	s_cub
 	int			step_x;
 	int			step_y;
 	int			side;
-	int			matrix[100][100];
+	char			matrix[100][100];
 
 	int			walk_front;
 	int			walk_back;
@@ -155,6 +155,8 @@ typedef struct	s_cub
 	int			shot;
 	int			crouch;
 }				t_cub;
+
+void		ft_copy(char *line, t_cub *cub, int j, int i);
 
 int			ft_atoi(const char *str);
 void		draw_gun(t_cub *cub);

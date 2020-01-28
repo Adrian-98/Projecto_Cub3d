@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/28 15:55:13 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:39:43 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,13 @@ void		draw_sprites(t_cub *cub)
 
 void		kill(t_cub *cub)
 {
+	printf("%d\n", cub->sprite_count);
 	if (cub->sprite_on == 1)
 	{
-		if (cub->pos_x <= cub->sprite_posx + 3 &&
-			cub->pos_x >= cub->sprite_posx - 3 && cub->pos_y
-			<= cub->sprite_posy + 3 &&
-			cub->pos_y >= cub->sprite_posy - 3)
+		if (cub->pos_x <= cub->sprite_posx + 4 &&
+			cub->pos_x >= cub->sprite_posx - 4 && cub->pos_y
+			<= cub->sprite_posy + 4 &&
+			cub->pos_y >= cub->sprite_posy - 4)
 		{
 			if (cub->player.life > 90 && cub->player.life < 100)
 				system("afplay ./sounds/auch.mp3& 2&>/dev/null >/dev/null");
@@ -104,8 +105,6 @@ void		kill(t_cub *cub)
 			cub->sprite_count -= 1;
 		}
 	}
-	if (cub->sprite_count <= 5 && cub->sprite_count > 3)
-	{
+	if (cub->sprite_count <= 5 && cub->sprite_count > 4)
 		system("afplay ./sounds/victory.mp3& 2&>/dev/null >/dev/null");
-	}
 }

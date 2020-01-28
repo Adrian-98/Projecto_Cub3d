@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/27 20:08:22 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:10:50 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static void	hit(t_cub *cub)
 			cub->map_y += cub->step_y;
 			cub->side = 1;
 		}
-		if (cub->matrix[cub->map_x][cub->map_y] == 1)
+		if (cub->matrix[cub->map_x][cub->map_y] == '1')
 			cub->hit = 1;
-		if (cub->matrix[cub->map_x][cub->map_y] == 2)
+		if (cub->matrix[cub->map_x][cub->map_y] == '2')
 		{
 			cub->sprite_on = 1;
 			cub->sprite_posx = cub->map_x;
@@ -48,7 +48,7 @@ static void	cubside2(t_cub *cub)
 		else if (cub->side == 1 && cub->pos_y < cub->map_y)
 			cub->side = 3;
 	}
-	cub->id = cub->matrix[cub->map_x][cub->map_y] + cub->side;
+	cub->id = cub->matrix[cub->map_x][cub->map_y] + cub->side - '0';
 	cub->wall_x -= floor((cub->wall_x));
 	cub->tex_x = abs((int)(cub->wall_x * (double)(64)));
 	ft_crouch_jump(cub);
