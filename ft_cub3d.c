@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/28 15:52:41 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/29 15:49:56 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			cub3d(t_cub *cub)
 	cub->floor_color = 0xFFFFFF;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
-	system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
+	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
 
 	return (1);
 }
@@ -60,6 +60,8 @@ void		principal(char **argv, t_cub *cub)
 	fd = open(*argv, O_RDONLY);
 	if (cub3d(cub) != 1)
 		ft_error();
+	ft_read_resolution(fd, line, cub);
+
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
@@ -72,6 +74,8 @@ void		principal(char **argv, t_cub *cub)
 	mlx_loop_hook(cub->mlx_ptr, ft_loop, cub);
 	mlx_loop(cub->mlx_ptr);
 	free(cub);
+	free(cub->zbuffer);
+	free(line);
 }
 
 int			main(int argc, char **argv)

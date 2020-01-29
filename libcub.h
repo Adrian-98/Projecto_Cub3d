@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/28 16:00:45 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/29 15:43:23 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,7 @@ void		principal(char **argv, t_cub *cub);
 void    	ft_error(void);
 void		ft_walk_right(t_cub *cub);
 void		ft_walk_left(t_cub *cub);
+int			ft_isdigit(int c);
 void		ft_screenshot(t_cub *cub);
 void		principal2(char **argv, t_cub *cub);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -193,5 +194,6 @@ int			cub3d(t_cub *cub);
 void		draw_sprites(t_cub *cub);
 void		kill(t_cub *cub);
 void		game_over(t_cub *cub);
+void		ft_read_resolution(int fd, char *line, t_cub *cub);
 
 # endif

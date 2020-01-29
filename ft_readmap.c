@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:54:19 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/28 16:00:41 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/29 16:23:45 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,72 +22,32 @@ static void	matrix2(int fd, char *line, t_cub *cub, int i)
 		cub->matrix[i][j] = line[j] - '0';
 		j++;
 	}
+	free(line);
 }
 
 void		ft_create_matrix(int fd, char *line, t_cub *cub)
 {
 	int		i;
 	int		j;
-
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
 		while (line[j])
 		{
-			if (line[0] == 'R')
-			{
-
-				j = 2;
-				cub->width = ft_atoi(&line[j]);
-				while (line[j] != ' ')
-					j++;
-				cub->height = ft_atoi(&line[j]);
-			}
-			else if (line[0] == 'N')
-			{
-				j = 3;
-				cub->north = ft_strdup(&line[j]);
-			}
-			else if (line[0] == 'W')
-			{
-				j = 3;
-				cub->west = ft_strdup(&line[j]);
-			}
-			else if (line[0] == 'E')
-			{
-				j = 3;
-				cub->east = ft_strdup(&line[j]);
-			}
-			else if (line[0] == 'S' && line[1] == 'O')
-			{
-				j = 3;
-				cub->south = ft_strdup(&line[j]);
-			}
-			else if (line[0] == 'S')
-			{
-				j = 2;
-				cub->spriteee = ft_strdup(&line[j]);
-			}
-
-			if (line[j] == 'W' || line[j] == 'N'
-				|| line[j] == 'S' || line[j] == 'E')
+			if ((ft_isdigit(line[j]) == 0))
 			{
 				cub->matrix[i][j] = 0;
 				cub->pos_x = i;
 				cub->pos_y = j;
 				ft_dir(cub, line[j]);
 			}
-			else if (line[j] >= '0' && line[j] <= '9')
-			{
-				if (line[j] == '2')
-					cub->sprite_count += 16;
-				cub->matrix[i][j] = line[j] - '0';
-			}
-			else
-				break ;
+			if (line[j] == '2')
+				cub->sprite_count += 16;
+			cub->matrix[i][j] = line[j] - '0';
 			j++;
 		}
+		free(line);
 		i++;
 	}
 	matrix2(fd, line, cub, i);

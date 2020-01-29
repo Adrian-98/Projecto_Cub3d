@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hud.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 14:41:55 by adrian            #+#    #+#             */
-/*   Updated: 2020/01/26 14:18:40 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/29 15:30:20 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
 
-static void	put_hud(t_cub *cub)
+static void		put_hud(t_cub *cub)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
+	tmp = ft_itoa(cub->player.bullets);
 	i = 0;
 	while (i++ < cub->player.life)
 		mlx_string_put(cub->mlx_ptr, cub->win_ptr, 10 + i,
@@ -24,14 +26,15 @@ static void	put_hud(t_cub *cub)
 		mlx_string_put(cub->mlx_ptr, cub->win_ptr, 10 + i,
 			cub->height - 30, 0x808080, "|");
 	mlx_string_put(cub->mlx_ptr, cub->win_ptr, cub->width - 30,
-		cub->height - 40, 0x00000, ft_itoa(cub->player.bullets));
+		cub->height - 40, 0x00000, tmp);
 	mlx_string_put(cub->mlx_ptr, cub->win_ptr,
 		cub->width - 30, cub->height - 40, 0x00000, " /8");
 	mlx_string_put(cub->mlx_ptr, cub->win_ptr,
 		cub->width / 2, cub->height / 2 + 15, 0xFFFFF, "()");
+	free(tmp);
 }
 
-void		fps(t_cub *cub)
+void			fps(t_cub *cub)
 {
 	static int		timestamp;
 	static int		fps;
