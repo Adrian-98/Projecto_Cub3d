@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/28 15:55:13 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/29 14:42:35 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ void		kill(t_cub *cub)
 {
 	if (cub->sprite_on == 1)
 	{
-		if (cub->pos_x <= cub->sprite_posx + 3 &&
-			cub->pos_x >= cub->sprite_posx - 3 && cub->pos_y
-			<= cub->sprite_posy + 3 &&
-			cub->pos_y >= cub->sprite_posy - 3)
+		if (cub->pos_x <= cub->sprite_posx + 4 &&
+			cub->pos_x >= cub->sprite_posx - 4 && cub->pos_y
+			<= cub->sprite_posy + 4 &&
+			cub->pos_y >= cub->sprite_posy - 4)
 		{
 			if (cub->player.life > 90 && cub->player.life < 100)
 				system("afplay ./sounds/auch.mp3& 2&>/dev/null >/dev/null");

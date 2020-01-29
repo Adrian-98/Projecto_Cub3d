@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_gmaeover.c                                    :+:      :+:    :+:   */
+/*   ft_draw_gmaeover.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 14:14:08 by adrian            #+#    #+#             */
-/*   Updated: 2020/01/26 14:49:06 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/29 14:45:44 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	game_over(t_cub *cub)
 {
 	int x;
 	int y;
-	
+
 	x = 0;
 	while (x < cub->width)
 	{
@@ -25,7 +25,7 @@ void	game_over(t_cub *cub)
 		{
 			ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
 				&cub->tex[10].data[y * cub->tex[10].size_line +
-				x  * cub->tex[10].bpp / 8], sizeof(int));
+				x * cub->tex[10].bpp / 8], sizeof(int));
 			y++;
 		}
 		x++;
