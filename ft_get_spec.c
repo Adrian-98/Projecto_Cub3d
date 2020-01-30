@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:20:28 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/30 18:44:45 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 19:12:21 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_get_spec(t_cub *cub, int fd)
 
 	while (get_next_line(fd, &line) == 1)
 	{
-		(line[0] == 'R' && line[1] == ' ') ? cub->resol = ft_get_res(line) : 0;
+		(line[0] == 'R' && line[1] == ' ') ? ft_get_res(line, cub) : 0;
 		(line[0] == 'N' && line[1] == 'O' && line[2] == ' ') ?
 				cub->north = ft_strdup(line + 3) : 0;
 		(line[0] == 'S' && line[1] == 'O' && line[2] == ' ') ?
@@ -32,16 +32,13 @@ int		ft_get_spec(t_cub *cub, int fd)
 		(line[0] == '1') ? ft_get_map(cub, &line, fd) : 0;
 
 	}
+
 	if (!(ft_get_coord(cub)) || !(ft_get_camangle(cub)))
 		return (0);
 	int i = 0;
-	// while (cub->matrix[i])
-	// {
-	// 	printf("matrix [%d]: %s\n", i, cub->matrix[i]);
-	// 	i++;
-	// }
+
 	if (!cub->col_floor || !cub->resol
-		|| cub->resol[0] > 2560 || cub->resol[1] > 1540 || !cub->north ||
+		|| cub->width > 2560 || cub->height > 1540 || !cub->north ||
 		!cub->west || !cub->east || !cub->south || !cub->spriteee
 		|| (ft_check_map_content_and_size(cub->matrix) +
 		ft_check_map_border(cub->matrix)) != 2)
@@ -130,22 +127,19 @@ void ft_get_map(t_cub *cub, char **line, int fd)
 	close(fd);
 }
 
-double		*ft_get_res(char *line)
+void		ft_get_res(char *line, t_cub *cub)
 {
 	int 	i_line;
-	double	*resol;
 
-	if (!(resol = (double *)ft_calloc(2, sizeof(double))))
-		return (0);
+
 	i_line = 0;
 	while (!ft_isdigit(line[i_line]))
 		i_line++;
-	resol[0] = ft_atoi(line + i_line);
+	cub->width = ft_atoi(line + i_line);
 	while (ft_isdigit(line[i_line]))
 		i_line++;
 	i_line++;
-	resol[1] = ft_atoi(line + i_line);
-	return (resol);
+	cub->height = ft_atoi(line + i_line);
 }
 
 int		ft_get_col(char *line)

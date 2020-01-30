@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/30 18:42:33 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 19:07:04 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int			cub3d(t_cub *cub)
 {
-	cub->width = 1000;
-	cub->height = 700;
+	cub->width = 50;
+	cub->height = 50;
 	cub->movespeed = 0.08;
 	cub->rotatespeed = 0.05;
 	cub->crouch = 0;
@@ -68,8 +68,10 @@ void		principal(char **argv, t_cub *cub)
 	fd = open(*argv, O_RDONLY);
 	if (cub3d(cub) != 1)
 		ft_error();
+	printf("%d\n%d\n", cub->width, cub->height);
 	if (ft_get_spec(cub, fd) == 0)
 		ft_error();
+	printf("%d\n%d\n", cub->width, cub->height);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");

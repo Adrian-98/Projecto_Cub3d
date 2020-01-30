@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/30 16:57:01 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 19:12:07 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,7 +200,7 @@ int			ft_get_spec(t_cub *cub, int fd);
 int			ft_get_camangle(t_cub *cub);
 int			ft_get_coord(t_cub *cub);
 void 		ft_get_map(t_cub *cub, char **line, int fd);
-double		*ft_get_res(char *line);
+void		ft_get_res(char *line, t_cub *cub);
 int			ft_get_col(char *line);
 int			ft_check_map_content_and_size(char **map);
 int			ft_check_map_border(char **map);
