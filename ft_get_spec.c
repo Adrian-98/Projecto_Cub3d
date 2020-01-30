@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:20:28 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/30 19:22:20 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 19:30:13 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int		ft_get_spec(t_cub *cub, int fd)
 		(line[0] == 'S' && line[1] == ' ') ? cub->spriteee = ft_strdup(line + 2) : 0;
 		(line[0] == 'F' && line[1] == ' ') ? cub->col_floor = ft_get_col(line) : 0;
 		(line[0] == '1') ? ft_get_map(cub, &line, fd) : 0;
-
 	}
 
 	if (!(ft_get_coord(cub)) || !(ft_get_camangle(cub)))
@@ -111,7 +110,7 @@ void ft_get_map(t_cub *cub, char **line, int fd)
 	int		map_line;
 
 	if (!(cub->matrix = (char **)ft_calloc(1000000, sizeof(char *))))
-		return ;
+		ft_error();
 	map_line = 0;
 	cub->matrix[map_line] = ft_strdup(*line);
 	map_line++;
@@ -122,7 +121,7 @@ void ft_get_map(t_cub *cub, char **line, int fd)
 		map_line++;
 	}
 	cub->matrix[map_line] = ft_strdup(*line);
-	close(fd);
+	close (fd);
 }
 
 void		ft_get_res(char *line, t_cub *cub)
