@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 23:07:30 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/25 16:56:35 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:54:52 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		principal2(char **argv, t_cub *cub)
 	line = malloc(sizeof(char *));
 	fd = open(*argv, O_RDONLY);
 	cub3d(cub);
-	ft_create_matrix(fd, line, cub);
+	//ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");

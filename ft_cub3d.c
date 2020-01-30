@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/29 15:49:56 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 18:29:50 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,14 @@ int			cub3d(t_cub *cub)
 	cub->player.y_pos += 0.5;
 	cub->sprite_hit = 0;
 	cub->sprite_on = 0;
-	cub->floor_color = 0xFFFFFF;
+	cub->south = NULL;
+	cub->north = NULL;
+	cub->west = NULL;
+	cub->east = NULL;
+	cub->spriteee = NULL;
+	cub->pos_x = 0.0;
+	cub->pos_y = 0.0;
+	cub->col_floor = 0;
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
 		return (0);
 	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
@@ -56,13 +63,16 @@ void		principal(char **argv, t_cub *cub)
 	int		fd;
 	char	*line;
 
+
 	line = malloc(sizeof(char *));
 	fd = open(*argv, O_RDONLY);
 	if (cub3d(cub) != 1)
 		ft_error();
-	ft_read_resolution(fd, line, cub);
-
-	ft_create_matrix(fd, line, cub);
+	//ft_read_resolution(fd, line, cub);
+	if (ft_get_spec(cub, fd) == 0)
+		ft_error();
+	printf("hola\n");
+	//ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");

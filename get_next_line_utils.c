@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:20:44 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/24 20:17:47 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 17:10:05 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*ft_strdup(const char *s1)
 	int		i;
 
 	i = 0;
+	if (!s1)
+		return (0);
 	while (s1[i] != '\0')
 		i++;
 	s2 = (char *)malloc(sizeof(char) * i + 1);

@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/29 15:43:23 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:57:01 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,14 @@ typedef struct	s_cub
 	int			sprite_on;
 	int			sprite_count;
 	
-	char		resolution[100];
+	double		*resol;
 	char		*north;
 	char		*east;
 	char		*south;
 	char		*west;
 	char		*spriteee;
+	int			col_floor;
+	char		dir;
 	
 	double		pos_x;
 	double		pos_y;
@@ -128,7 +130,6 @@ typedef struct	s_cub
 	int			height;
 	int			sky_color;
 	int			wall_color;
-	int			floor_color;
 	int			lineHeight;
 	int			map_x;
 	int			map_y;
@@ -136,7 +137,7 @@ typedef struct	s_cub
 	int			step_x;
 	int			step_y;
 	int			side;
-	int			matrix[100][100];
+	char		**matrix;
 
 	int			walk_front;
 	int			walk_back;
@@ -195,5 +196,16 @@ void		draw_sprites(t_cub *cub);
 void		kill(t_cub *cub);
 void		game_over(t_cub *cub);
 void		ft_read_resolution(int fd, char *line, t_cub *cub);
+int			ft_get_spec(t_cub *cub, int fd);
+int			ft_get_camangle(t_cub *cub);
+int			ft_get_coord(t_cub *cub);
+void 		ft_get_map(t_cub *cub, char **line, int fd);
+double		*ft_get_res(char *line);
+int			ft_get_col(char *line);
+int			ft_check_map_content_and_size(char **map);
+int			ft_check_map_border(char **map);
+int			ft_check_in_set_char(char to_test, char *dataset);
+void		*ft_calloc(size_t count, size_t size);
+void		ft_bzero(void *s, unsigned int n);
 
 # endif
