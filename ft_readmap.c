@@ -6,13 +6,13 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:54:19 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/29 16:23:45 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 13:09:58 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
 
-static void	matrix2(int fd, char *line, t_cub *cub, int i)
+static void	matrix2(char *line, t_cub *cub, int i)
 {
 	int j;
 
@@ -30,9 +30,11 @@ void		ft_create_matrix(int fd, char *line, t_cub *cub)
 	int		i;
 	int		j;
 	i = 0;
+	char *tmp = malloc(sizeof(char) * ft_strlen(line));
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
+		tmp = line;
 		while (line[j])
 		{
 			if ((ft_isdigit(line[j]) == 0))
@@ -47,10 +49,10 @@ void		ft_create_matrix(int fd, char *line, t_cub *cub)
 			cub->matrix[i][j] = line[j] - '0';
 			j++;
 		}
-		free(line);
+		free(tmp);
 		i++;
 	}
-	matrix2(fd, line, cub, i);
+	matrix2(line, cub, i);
 }
 
 static void	ft_dir2(t_cub *cub, char c)

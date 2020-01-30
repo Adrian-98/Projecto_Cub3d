@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 18:58:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/29 16:20:22 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 13:24:02 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	key2(int keycode, t_cub *cub)
 		free(cub);
 		free(cub->zbuffer);
 		mlx_destroy_window(cub->mlx_ptr, cub->win_ptr);
-		system("leaks a.out");
 		exit(0);
 	}
 }
