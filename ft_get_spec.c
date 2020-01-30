@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:20:28 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/30 19:12:21 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 19:22:20 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ int		ft_get_spec(t_cub *cub, int fd)
 
 	if (!(ft_get_coord(cub)) || !(ft_get_camangle(cub)))
 		return (0);
-	int i = 0;
-
 	if (!cub->col_floor || !cub->resol
-		|| cub->width > 2560 || cub->height > 1540 || !cub->north ||
+		|| cub->width > 1920 || cub->height > 1080 || !cub->north ||
 		!cub->west || !cub->east || !cub->south || !cub->spriteee
 		|| (ft_check_map_content_and_size(cub->matrix) +
 		ft_check_map_border(cub->matrix)) != 2)

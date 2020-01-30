@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 18:58:17 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/30 18:50:11 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/30 19:18:32 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			key_realese(int keycode, t_cub *cub)
 
 int			close_window(t_cub *cub)
 {
+	(void)cub;
 	system("killall afplay 2&>/dev/null >/dev/null");
 	exit(0);
 }

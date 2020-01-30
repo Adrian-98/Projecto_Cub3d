@@ -1,16 +1,12 @@
 R 900 500
 
-
-
-
-
 NO ./textures/wood.xpm
 SO ./textures/redbrick.xpm
 WE ./textures/stone.xpm
 EA ./textures/mossy.xpm
+
 S ./textures/hitler.xpm
 F 220,000,700
-
 
 11111111111111111111111111111111
 10000000010000011000000000000001
