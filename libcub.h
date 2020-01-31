@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/30 19:30:21 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:00:46 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ void		draw_gun(t_cub *cub);
 char		*ft_itoa(int n);
 void		fps(t_cub *cub);
 size_t		ft_strlen(const char *s);
-char		*ft_strchr(const char *s, int c);
+char		*ft_strchr(char *s, char a);
 char		*ft_strdup(const char *s1);
 char		*ft_strcat(char *dst, char *src);
 char		*ft_strcpy(char *dst, char *src);

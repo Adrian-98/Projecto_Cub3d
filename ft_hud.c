@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 14:41:55 by adrian            #+#    #+#             */
-/*   Updated: 2020/01/29 15:30:20 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:27:46 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,7 @@ static void		put_hud(t_cub *cub)
 
 void			fps(t_cub *cub)
 {
-	static int		timestamp;
-	static int		fps;
-	static int		fps_temp;
-
-	if (time(NULL) != timestamp)
-	{
-		fps_temp = fps;
-		fps = 0;
-		timestamp = (int)time(NULL);
-	}
-	else
-		fps++;
 	mlx_string_put(cub->mlx_ptr, cub->win_ptr, 10, 20,
 	0xffffff, cub->player.name);
-	mlx_string_put(cub->mlx_ptr, cub->win_ptr, cub->width - 20,
-		20, 0xe5e500, ft_itoa(fps_temp + 1));
 	put_hud(cub);
 }

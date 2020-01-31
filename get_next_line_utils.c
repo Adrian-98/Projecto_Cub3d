@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:20:44 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/30 17:10:05 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:00:39 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,19 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, char a)
 {
 	int		i;
-	char	a;
 
 	i = 0;
-	a = c;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] == a)
-			return ((char *)s + i);
+			return (&s[i]);
 		i++;
 	}
-	if (c == 0)
-		return ((char *)s + i);
 	return (0);
 }
 
@@ -63,34 +61,31 @@ char	*ft_strdup(const char *s1)
 	return (s2);
 }
 
-char	*ft_strcat(char *dst, char *src)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*s3;
 
 	i = 0;
 	j = 0;
-	while (dst[i] != 0)
-		i++;
-	while (src[j] != 0)
+	if (s1 && s2)
 	{
-		dst[i + j] = src[j];
-		j++;
+		if (!(s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)+ 1))))
+			return (NULL);
+		while (s1[i])
+		{
+			s3[i] = s1[i];
+			i++;
+		}
+		while (s2[j])
+		{
+			s3[i] = s2[j];
+			j++;
+			i++;
+		}
+		s3[i] = '\0';
+		return (s3);
 	}
-	dst[i + j] = 0;
-	return (dst);
-}
-
-char	*ft_strcpy(char *dst, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != 0)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = 0;
-	return (dst);
+	return (0);
 }

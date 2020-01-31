@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/30 19:14:19 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:24:44 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int			cub3d(t_cub *cub)
 	cub->north = NULL;
 	cub->west = NULL;
 	cub->east = NULL;
+	cub->sprite_count = 45;
 	cub->spriteee = NULL;
 	cub->pos_x = 0.0;
 	cub->pos_y = 0.0;

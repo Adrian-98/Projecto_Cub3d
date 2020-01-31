@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:20:28 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/30 19:30:13 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:01:41 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int		ft_get_spec(t_cub *cub, int fd)
 {
+	char *tmp;
 	char *line;
-
+	
 	while (get_next_line(fd, &line) == 1)
 	{
+		tmp = line;
 		(line[0] == 'R' && line[1] == ' ') ? ft_get_res(line, cub) : 0;
 		(line[0] == 'N' && line[1] == 'O' && line[2] == ' ') ?
 				cub->north = ft_strdup(line + 3) : 0;
@@ -30,8 +32,8 @@ int		ft_get_spec(t_cub *cub, int fd)
 		(line[0] == 'S' && line[1] == ' ') ? cub->spriteee = ft_strdup(line + 2) : 0;
 		(line[0] == 'F' && line[1] == ' ') ? cub->col_floor = ft_get_col(line) : 0;
 		(line[0] == '1') ? ft_get_map(cub, &line, fd) : 0;
+		free(tmp);
 	}
-
 	if (!(ft_get_coord(cub)) || !(ft_get_camangle(cub)))
 		return (0);
 	if (!cub->col_floor || !cub->resol
@@ -117,10 +119,11 @@ void ft_get_map(t_cub *cub, char **line, int fd)
 	while (get_next_line(fd, line) == 1)
 	{
 		cub->matrix[map_line] = ft_strdup(*line);
-
 		map_line++;
+		free(*line);
 	}
 	cub->matrix[map_line] = ft_strdup(*line);
+	free(*line);
 	close (fd);
 }
 
