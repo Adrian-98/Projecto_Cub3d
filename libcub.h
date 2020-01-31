@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:59:46 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/31 19:00:46 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:24:07 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,5 +207,7 @@ int			ft_check_map_border(char **map);
 int			ft_check_in_set_char(char to_test, char *dataset);
 void		*ft_calloc(size_t count, size_t size);
 void		ft_bzero(void *s, unsigned int n);
+void		process(t_cub *cub, int x);
+void		cubside(t_cub *cub);
 
 # endif

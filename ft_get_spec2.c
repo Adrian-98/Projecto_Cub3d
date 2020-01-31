@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:12:24 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/31 19:18:38 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:19:40 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	get_spec(t_cub *cub)
 		ft_error();
 }
 
-int		ft_get_spec(t_cub *cub, int fd)
+int			ft_get_spec(t_cub *cub, int fd)
 {
 	char *tmp;
 	char *line;
@@ -70,7 +70,7 @@ static void	position(t_cub *cub)
 	}
 }
 
-int		ft_get_camangle(t_cub *cub)
+int			ft_get_camangle(t_cub *cub)
 {
 	if (cub->dir == 'N')
 		position(cub);

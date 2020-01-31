@@ -6,13 +6,13 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 17:57:01 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/30 18:39:37 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:25:00 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
 
-static void	hit(t_cub *cub)
+static void		hit(t_cub *cub)
 {
 	while (cub->hit == 0)
 	{
@@ -39,7 +39,7 @@ static void	hit(t_cub *cub)
 	}
 }
 
-static void	cubside2(t_cub *cub)
+static void		cubside2(t_cub *cub)
 {
 	if (cub->hit == 1)
 	{
@@ -54,7 +54,7 @@ static void	cubside2(t_cub *cub)
 	ft_crouch_jump(cub);
 }
 
-static void	wall_texture(t_cub *cub, int x)
+static void		wall_texture(t_cub *cub, int x)
 {
 	while (cub->drawstart <= cub->drawend)
 	{
@@ -68,28 +68,18 @@ static void	wall_texture(t_cub *cub, int x)
 	}
 }
 
-static void	cubside(t_cub *cub)
+void			process(t_cub *cub, int x)
 {
-	if (cub->side == 0)
-		cub->perpwalldist = (cub->map_x - cub->pos_x +
-		(1 - cub->step_x) / 2) / cub->raydir_x;
-	else
-		cub->perpwalldist = (cub->map_y - cub->pos_y +
-		(1 - cub->step_y) / 2) / cub->raydir_y;
-	cub->lineHeight = (int)(cub->height / cub->perpwalldist);
-	cub->drawstart = -cub->lineHeight / 2 + cub->height / 2;
-	if (cub->drawstart < 0)
-		cub->drawstart = 0;
-	cub->drawend = cub->lineHeight / 2 + cub->height / 2;
-	if (cub->drawend >= cub->height)
-		cub->drawend = cub->height - 1;
-	if (cub->side == 0)
-		cub->wall_x = cub->pos_y + cub->perpwalldist * cub->raydir_y;
-	else
-		cub->wall_x = cub->pos_x + cub->perpwalldist * cub->raydir_x;
+	init_values(cub, x);
+	next_step(cub);
+	hit(cub);
+	cubside(cub);
+	cubside2(cub);
+	wall_texture(cub, x);
+	ft_crouch_jump(cub);
 }
 
-int			ft_loop(t_cub *cub)
+int				ft_loop(t_cub *cub)
 {
 	int	x;
 	int	y;
@@ -103,13 +93,7 @@ int			ft_loop(t_cub *cub)
 	while (x < cub->width)
 	{
 		y = 0;
-		init_values(cub, x);
-		next_step(cub);
-		hit(cub);
-		cubside(cub);
-		cubside2(cub);
-		wall_texture(cub, x);
-		ft_crouch_jump(cub);
+		process(cub, x);
 		cub->zbuffer[x] = cub->perpwalldist;
 		x++;
 	}

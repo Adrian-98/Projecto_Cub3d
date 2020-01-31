@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:11:52 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/31 17:26:41 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:35:01 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ static void	calculate_sprites(t_cub *cub)
 		cub->draw_end_x = cub->width - 1;
 }
 
+static void	ft_sprite(t_cub *cub, int y, int x)
+{
+	cub->tex_y = abs((((y * 256 - cub->height * 128 +
+		cub->sprite_height * 128) * texHeight) /
+		cub->sprite_height) / 256);
+	if ((cub->tex[20].data[cub->tex_y % 64 *
+		cub->tex[20].size_line + cub->tex_x % 64 *
+		cub->tex[20].bpp / 8] != 0))
+	{
+		ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
+			&cub->tex[20].data[cub->tex_y % 64 *
+			cub->tex[20].size_line + cub->tex_x % 64 *
+			cub->tex[20].bpp / 8], sizeof(int));
+	}
+}
+
 void		draw_sprites(t_cub *cub)
 {
 	int x;
@@ -57,21 +73,21 @@ void		draw_sprites(t_cub *cub)
 		{
 			while (y < cub->draw_end_y)
 			{
-				cub->tex_y = abs((((y * 256 - cub->height * 128 +
-					cub->sprite_height * 128) * texHeight) /
-					cub->sprite_height) / 256);
-				if ((cub->tex[20].data[cub->tex_y % 64 *
-					cub->tex[20].size_line + cub->tex_x % 64 *
-					cub->tex[20].bpp / 8] != 0))
-				{
-					ft_memcpy(cub->data + 4 * cub->width * y + x * 4,
-						&cub->tex[20].data[cub->tex_y % 64 *
-						cub->tex[20].size_line + cub->tex_x % 64 *
-						cub->tex[20].bpp / 8], sizeof(int));
-				}
+				ft_sprite(cub, y, x);
 				y++;
 			}
 		}
+	}
+}
+
+static void	shot1(t_cub *cub)
+{
+	if (cub->player.shooting == 1 && cub->transform_x >= -0.5
+	&& cub->transform_x <= 0.5)
+	{
+		cub->matrix[cub->sprite_posx][cub->sprite_posy] = 0;
+		cub->sprite_on = 0;
+		cub->sprite_count -= 1;
 	}
 }
 
@@ -95,15 +111,7 @@ void		kill(t_cub *cub)
 		cub->pos_x >= cub->sprite_posx - 7 && cub->pos_y
 		<= cub->sprite_posy + 7 &&
 		cub->pos_y >= cub->sprite_posy - 7)
-	{
-		if (cub->player.shooting == 1 && cub->transform_x >= -0.5
-		&& cub->transform_x <= 0.5)
-		{
-			cub->matrix[cub->sprite_posx][cub->sprite_posy] = 0;
-			cub->sprite_on = 0;
-			cub->sprite_count -= 1;
-		}
-	}
+		shot1(cub);
 	if (cub->sprite_count >= 2 && cub->sprite_count < 5)
 	{
 		system("afplay ./sounds/victory.mp3& 2&>/dev/null >/dev/null");
