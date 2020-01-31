@@ -6,13 +6,13 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 13:58:10 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/30 18:20:17 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:06:47 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
 
-int	ft_check_map_content_and_size(char **map)
+int			ft_check_map_content_and_size(char **map)
 {
 	size_t	size;
 	int		i_line;
@@ -37,7 +37,7 @@ int	ft_check_map_content_and_size(char **map)
 	return (1);
 }
 
-int		ft_check_map_border(char **map)
+int			ft_check_map_border(char **map)
 {
 	int		i_line;
 	int		i_col;
@@ -66,7 +66,7 @@ int		ft_check_map_border(char **map)
 	return (1);
 }
 
-int	ft_check_in_set_char(char to_test, char *dataset)
+int			ft_check_in_set_char(char to_test, char *dataset)
 {
 	int	i;
 

@@ -6,11 +6,25 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/31 17:24:44 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:09:05 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcub.h"
+
+static void	cub3d2(t_cub *cub)
+{
+	cub->sprite_on = 0;
+	cub->south = NULL;
+	cub->north = NULL;
+	cub->west = NULL;
+	cub->east = NULL;
+	cub->sprite_count = 45;
+	cub->spriteee = NULL;
+	cub->pos_x = 0.0;
+	cub->pos_y = 0.0;
+	cub->col_floor = 0;
+}
 
 int			cub3d(t_cub *cub)
 {
@@ -29,17 +43,8 @@ int			cub3d(t_cub *cub)
 	cub->player.x_pos += 0.5;
 	cub->player.y_pos += 0.5;
 	cub->sprite_hit = 0;
-	cub->sprite_on = 0;
-	cub->south = NULL;
-	cub->north = NULL;
-	cub->west = NULL;
-	cub->east = NULL;
-	cub->sprite_count = 45;
-	cub->spriteee = NULL;
-	cub->pos_x = 0.0;
-	cub->pos_y = 0.0;
-	cub->col_floor = 0;
-	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
+	cub3d2(cub);
+	system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
 	return (1);
 }
 
@@ -50,7 +55,6 @@ int			mouse_functions(int x, int y, t_cub *cub)
 	cub->plane_x = 0.66 * cub->dir_y;
 	cub->plane_y = -0.66 * cub->dir_x;
 	(void)y;
-
 	return (0);
 }
 
@@ -59,12 +63,10 @@ void		principal(char **argv, t_cub *cub)
 	int		fd;
 	char	*line;
 
-
 	line = malloc(sizeof(char *));
 	fd = open(*argv, O_RDONLY);
 	if (cub3d(cub) != 1)
 		ft_error();
-
 	if (ft_get_spec(cub, fd) == 0)
 		ft_error();
 	if (!(cub->zbuffer = malloc(sizeof(double) * cub->width)))
@@ -72,17 +74,13 @@ void		principal(char **argv, t_cub *cub)
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr,
 	cub->width, cub->height, "mlx42");
-	
 	load_cubs(cub);
-	
 	mlx_hook(cub->win_ptr, 2, 0, key_press, cub);
 	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
 	mlx_hook(cub->win_ptr, 17, 0, close_window, cub);
 	mlx_hook(cub->win_ptr, 6, 0, mouse_functions, cub);
 	mlx_loop_hook(cub->mlx_ptr, ft_loop, cub);
-
 	mlx_loop(cub->mlx_ptr);
-
 	free(cub);
 	free(cub->zbuffer);
 	free(line);
