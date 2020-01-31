@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/31 19:43:10 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:44:02 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int			cub3d(t_cub *cub)
 	cub->player.y_pos += 0.5;
 	cub->sprite_hit = 0;
 	cub3d2(cub);
-	system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
+	//system("afplay ./sounds/sound3.mp3& 2&>/dev/null >/dev/null");
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:12:24 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/31 19:19:40 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:43:30 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@ static void	get_spec(t_cub *cub)
 	if (!(ft_get_coord(cub)) || !(ft_get_camangle(cub)))
 		ft_error();
 	if (!cub->col_floor || !cub->resol
-		|| cub->width > 1920 || cub->height > 1080 || !cub->north ||
+		|| cub->width > 1920 || cub->height > 1080 || !cub->north
+		|| cub->width <= 0 || cub->height <= 0 ||
 		!cub->west || !cub->east || !cub->south || !cub->spriteee
 		|| (ft_check_map_content_and_size(cub->matrix) +
 		ft_check_map_border(cub->matrix)) != 2)
+		ft_error();
+	if (ft_strncmp("./textures/", cub->north, 11) != 0)
+		ft_error();
+	if (ft_strncmp("./textures/", cub->east, 11) != 0)
+		ft_error();
+	if (ft_strncmp("./textures/", cub->west, 11) != 0)
+		ft_error();
+	if (ft_strncmp("./textures/", cub->south, 11) != 0)
+		ft_error();
+	if (ft_strncmp("./textures/", cub->spriteee, 11) != 0)
 		ft_error();
 }
 
