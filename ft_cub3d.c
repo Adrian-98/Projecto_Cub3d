@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/31 19:09:05 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:43:10 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,7 @@ int			main(int argc, char **argv)
 	if (argc == 2)
 		principal(&argv[1], cub);
 	else if (argc == 3 && ft_strncmp("--save", argv[2], 6) == 0)
-	{
 		principal2(&argv[1], cub);
-	}
 	else
 		ft_error();
 	return (0);

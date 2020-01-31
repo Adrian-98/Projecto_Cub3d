@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 23:07:30 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/01/31 19:31:20 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:45:14 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ void		principal2(char **argv, t_cub *cub)
 	load_cubs(cub);
 	ft_loop(cub);
 	ft_screenshot(cub);
-	free(cub);
 	exit(0);
 }
