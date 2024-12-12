@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/11/11 17:51:10 by glopez-a          #+#    #+#             */
-/*   Updated: 2020/01/14 23:48:39 by adrian           ###   ########.fr       */
+/*   Updated: 2020/01/25 13:59:34 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,23 @@ void	ft_inicialize(t_cub *cub)
 }
 
 
-
-/*void	put_id(t_cub *cub)
+int				mouse_functions(int x, int y, t_cub *cub)
 {
-	if (cub->matrix[cub->mapX][cub->mapY] == 2)
-		cub->id = 0;
-	if (cub->matrix[cub->mapX][cub->mapY] == 3)
-		cub->id = 1;
-	if (cub->matrix[cub->mapX][cub->mapY] == 4)
-		cub->id = 2;
-	if (cub->matrix[cub->mapX][cub->mapY] == 5)
-		cub->id = 3;
-	if (cub->matrix[cub->mapX][cub->mapY] == 6)
-		cub->id = 4;
-}*/
+	cub->dirX = cos((x * 720 / X) * M_PI / 180);
+	cub->dirY = sin((x * 720 / X) * M_PI / 180);
+	cub->planeX = 0.66 * cub->dirY;
+	cub->planeY = -0.66 * cub->dirX;
+	(void)y;
+	
+	return (0);
+}
 
 int		main(void)
 {
 	t_cub	*cub;
 	int		fd;
 	char	*line;
-
+	
 	line = malloc(sizeof(char *));
 	fd = open("map.cub", O_RDONLY);
 	if (!(cub = malloc(sizeof(t_cub))))
@@ -56,6 +52,7 @@ int		main(void)
 	ft_create_matrix(fd, line, cub);
 	cub->mlx_ptr = mlx_init();
 	cub->win_ptr = mlx_new_window(cub->mlx_ptr, cub->width, cub->height, "mlx42");
+	mlx_hook(cub->win_ptr, 6, 0, mouse_functions, cub);
 	load_cubs(cub);
 	
 
@@ -64,6 +61,7 @@ int		main(void)
 	mlx_hook(cub->win_ptr, 3, 0, key_realese, cub);
 	
 	mlx_loop_hook(cub->mlx_ptr, ft_loop, cub);
+	
 
 	mlx_loop(cub->mlx_ptr);
 	free(cub);
